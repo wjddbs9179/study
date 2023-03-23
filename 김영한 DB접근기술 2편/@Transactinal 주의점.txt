@@ -1,0 +1,11 @@
+1. @Transactional 이 적용 되기 위해선 반드시 스프링빈으로 등록하여 Proxy객체를 주입받아 사용해야 트랜잭션이 적용된다.
+(개발자가 직접 new 키워드로 객체를 생성할 경우 적용되지 않음.)
+
+2. @Transactional 은 클래스 내부에서 호출하는 메서드 경우 적용이 되지 않는다.
+(@Transactional이 붙어 있지 않은 메서드에서 @Transactional이 붙어있는 메서드를 내부에서 호출할 경우 트랜잭션이 적용되지 않음.)
+
+3. @Transactional 은 public 메서드만 적용 대상이 된다.
+(public이 아닌 곳에 @Transactional이 걸려 있으면 무시된다.)
+
+4. 초기화 코드@PostConstruct에 @Transactional은 적용되지 않는다. 이유는 초기화가 먼저 실행되고 나서 트랜잭션 AOP가 적용되기 때문이다.
+(@EventListener(ApplicationReadyEvent.class)를 사용하면 해결 할 수 있다.)

@@ -1,23 +1,16 @@
 package hellojpa;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Team extends BaseEntity {
+public class Product {
+
     @Id @GeneratedValue
-    @Column(name = "TEAM_ID")
     private Long id;
     private String name;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @ManyToMany(mappedBy = "product")
+    private List<MemberProduct> memberProducts;
 
     public String getName() {
         return name;
@@ -25,6 +18,14 @@ public class Team extends BaseEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }

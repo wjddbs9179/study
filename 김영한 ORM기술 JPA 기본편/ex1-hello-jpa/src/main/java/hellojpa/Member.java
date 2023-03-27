@@ -1,6 +1,9 @@
 package hellojpa;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Member {
@@ -9,27 +12,17 @@ public class Member {
     @GeneratedValue
     @Column(name = "MEMBER_ID")
     private Long id;
+
     @Column(name = "USERNAME")
     private String username;
-//    @Column(name = "TEAM_ID")
-//    private Long teamId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "TEAM_ID")
-    private Team team;
+    //기간 Period
+    @Embedded
+    private Period workPeriod;
 
-    public Team getTeam() {
-        return team;
-    }
-
-//    public void changeTeam(Team team) {
-//        this.team = team;
-//        team.getMembers().add(this);
-//    }
-
-    public void setTeam(Team team) {
-        this.team = team;
-    }
+    //주소 Address
+    @Embedded
+    private Address homeAddress;
 
     public Long getId() {
         return id;
@@ -45,5 +38,21 @@ public class Member {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Period getWorkPeriod() {
+        return workPeriod;
+    }
+
+    public void setWorkPeriod(Period workPeriod) {
+        this.workPeriod = workPeriod;
+    }
+
+    public Address getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(Address homeAddress) {
+        this.homeAddress = homeAddress;
     }
 }

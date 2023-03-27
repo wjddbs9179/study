@@ -1,6 +1,10 @@
 package hellojpa;
 
+import org.hibernate.Hibernate;
+import org.hibernate.jpa.internal.PersistenceUnitUtilImpl;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class JpaMain {
@@ -12,29 +16,27 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         //code
-        try{
-            Team team = new Team();
-            team.setName("TeamA");
-            em.persist(team);
+        try {
+            Address address = new Address("city","street","10000");
 
             Member member = new Member();
             member.setUsername("member1");
-//            member.changeTeam(team);
-            team.addMember(member);
+            member.setHomeAddress(address);
             em.persist(member);
 
-//            em.flush();
-//            em.clear();
+            Address address2 = new Address(address.getCity(), address.getStreet(), address.getZipcode());
+            Member member2 = new Member();
+            member2.setUsername("member2");
+            member2.setHomeAddress(address2);
+            em.persist(member2);
 
-            Team findTeam = em.find(Team.class,team.getId());
-            System.out.println("=========================");
-            System.out.println("findTeam = " + findTeam);
-            System.out.println("=========================");
+            member.getHomeAddress().setCity("newCity");
 
             tx.commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             tx.rollback();
-        }finally {
+            e.printStackTrace();
+        } finally {
             em.close();
         }
         emf.close();

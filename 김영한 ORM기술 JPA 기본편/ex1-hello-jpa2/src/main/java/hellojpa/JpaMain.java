@@ -1,9 +1,7 @@
 package hellojpa;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
+import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -14,12 +12,20 @@ public class JpaMain {
         tx.begin();
         try {
 
-            Member member1 = new Member(150L,"A");
-            Member member2 = new Member(160L,"B");
+            Member member = new Member();
+            member.setUsername("member1");
+            em.persist(member);
 
-            em.persist(member1);
-            em.persist(member2);
-            System.out.println("=========================");
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
+
+            member.changeTeam(team);
+
+            List<Member> members = team.getMembers();
+            for (Member m : members) {
+                System.out.println("m.getUsername() = " + m.getUsername());
+            }
 
             tx.commit();
         } catch (Exception e) {

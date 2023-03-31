@@ -5,22 +5,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Team {
+public class Parent {
+
     @Id @GeneratedValue
-    @Column(name = "TEAM_ID")
     private Long id;
 
     private String name;
 
-    @OneToMany(mappedBy = "team")
-    private List<Member> members = new ArrayList<>();
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Child> childList = new ArrayList<>();
 
-    public List<Member> getMembers() {
-        return members;
+
+    public void addChild(Child child){
+        childList.add(child);
+        child.setParent(this);
     }
 
-    public void setMembers(List<Member> members) {
-        this.members = members;
+
+    public List<Child> getChildList() {
+        return childList;
+    }
+
+    public void setChildList(List<Child> childList) {
+        this.childList = childList;
     }
 
     public Long getId() {

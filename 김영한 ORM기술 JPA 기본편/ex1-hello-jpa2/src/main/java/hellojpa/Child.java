@@ -1,26 +1,24 @@
 package hellojpa;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-public class Team {
-    @Id @GeneratedValue
-    @Column(name = "TEAM_ID")
+public class Child {
+    @Id
+    @GeneratedValue
     private Long id;
-
     private String name;
 
-    @OneToMany(mappedBy = "team")
-    private List<Member> members = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "PARENT_ID")
+    private Parent parent;
 
-    public List<Member> getMembers() {
-        return members;
+    public Parent getParent() {
+        return parent;
     }
 
-    public void setMembers(List<Member> members) {
-        this.members = members;
+    public void setParent(Parent parent) {
+        this.parent = parent;
     }
 
     public Long getId() {

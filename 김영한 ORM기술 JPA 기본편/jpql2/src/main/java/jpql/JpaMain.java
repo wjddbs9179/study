@@ -1,12 +1,6 @@
-package hellojpa;
+package jpql;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import javax.persistence.*;
 import java.util.List;
 
 public class JpaMain {
@@ -20,8 +14,14 @@ public class JpaMain {
 
             Member member = new Member();
             member.setUsername("member1");
+            member.setAge(10);
             em.persist(member);
 
+            List<Member> resultList = em.createQuery("select m from Member m where username=:username", Member.class)
+                    .setParameter("username", "member1")
+                    .getResultList();
+
+            System.out.println("result = " + resultList.stream().findAny().get().getUsername());
 
             tx.commit();
         } catch (Exception e) {

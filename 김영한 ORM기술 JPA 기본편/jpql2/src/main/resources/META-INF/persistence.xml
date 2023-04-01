@@ -17,6 +17,7 @@
             <property name="hibernate.use_sql_comments" value="true"/>
             <property name="hibernate.jdbc.batch_size" value="10"/> <!--10개 만큼 쿼리를 모아서 한번에 DB에 날림-->
             <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.default_batch_fetch_size" value="100" />
         </properties>
     </persistence-unit>
 </persistence>

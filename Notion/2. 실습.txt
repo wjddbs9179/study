@@ -1,0 +1,7 @@
+Notion 실습
+
+Workspace : 업무(협업) 공간(ex. 그로스쿨 교육 팀)
+page : 업무 묶음(ex. 회의록 모음)
+Block : 상세 Task(ex. 5월 7일. 주간회의 회의록)
+
+Notion을 사용하기 위해선 기존 이메일 아이디를 신규 계정으로 등록하고 Workspace를 생성하거나 기존 Workspace에 Join해야 함

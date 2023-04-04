@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        nav, ul, li{
+            list-style:none;
+            padding:0;
+            margin:0;
+        }
+
+        a{
+            color:inherit;
+            text-decoration:inherit;
+        }
+
+        nav.top-menu > ul > li {
+            display:inline-block;
+        }
+
+        nav.top-menu > ul{
+            display:inline-block;
+        }
+
+        nav.top-menu ul ul{
+            display:none;
+            position:absolute;
+            top:100%;
+            left:0;
+        }
+
+        nav.top-menu ul ul ul{
+            top:0;
+            left:100%;
+        }
+
+        nav.top-menu li:hover > ul{
+            display:block;
+        }
+
+        nav.top-menu li:hover {
+            background-color:black;
+        }
+
+        nav.top-menu li:hover > a {
+            color:white;
+        }
+
+        nav.top-menu li{
+            position:relative;
+            background-color:#dfdfdf;
+        }
+
+        nav.top-menu {
+            text-align:center;
+        }
+
+        nav.top-menu a {
+            white-space:nowrap;
+            padding:10px;
+            display:block;
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>시작 : go9.co/JJf</h1>
+<h1>시작 : go9.co/JJi</h1>
+
+<nav class="top-menu">
+    <ul>
+        <li>
+            <a href="#">식물</a>
+            <ul>
+                <li>
+                    <a href="#">과일</a>
+                    <ul>
+                        <li><a href="#">사과</a></li>
+                        <li><a href="#">배</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">야채</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">동물</a>
+            <ul>
+                <li><a href="#">포유류</a></li>
+                <li><a href="#">조류</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+</body>
+</html>

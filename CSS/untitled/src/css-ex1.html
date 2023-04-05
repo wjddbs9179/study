@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* 노말라이즈 */
+        nav, ul, li {
+            list-style:none;
+            padding:0;
+            margin:0;
+        }
+
+        a{
+            color:inherit;
+            text-decoration:inherit;
+        }
+        /* 노말라이즈 */
+
+
+        /* 메뉴 아이템 */
+        nav.top-menu > ul > li {
+            display:inline-block;
+            background-color:gold;
+            position:relative;
+        }
+
+        /* 1차 메뉴 */
+        nav.top-menu > ul {
+            background-color:blue;
+            display:inline-block;
+        }
+
+        nav.top-menu ul ul {
+            display:none;
+            position:absolute;
+            top:100%;
+            left:0;
+            background-color:pink;
+        }
+
+        nav.top-menu li:hover > ul {
+            display:block;
+        }
+
+        nav.top-menu {
+            text-align:center;
+        }
+
+        nav.top-menu a{
+            white-space:nowrap;
+        }
+    </style>
+</head>
+<body>
+<nav class="top-menu">
+    <ul>
+        <li>
+            <a href="#">식물</a>
+            <ul>
+                <li><a href="#">과일</a></li>
+                <li><a href="#">야채</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">동물</a>
+            <ul>
+                <li><a href="#">포유류</a></li>
+                <li><a href="#">조류</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+</body>
+</html>

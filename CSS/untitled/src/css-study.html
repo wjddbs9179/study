@@ -2,36 +2,84 @@
 <html lang="en">
 <head>
     <style>
+        nav.top-menu ul, li, a {
+            color:inherit;
+            text-decoration:none;
+            margin:0;
+            padding:0;
+            list-style:none;
+        }
+
+        nav.top-menu ul li {
+            display:inline-block;
+            background-color:#dfdfdf;
+        }
+
+        nav.top-menu ul li:hover{
+            background-color:black;
+            color:white;
+        }
+
+        nav.top-menu ul li:hover > ul {
+            color:black;
+        }
+
+        nav.top-menu ul ul > li{
+            display:none;
+        }
+
+        nav.top-menu ul ul {
+            position:absolute;
+        }
+
+        nav.top-menu ul li:hover ul > li{
+            display:block;
+        }
+
+        nav.top-menu a {
+            padding:10px;
+            display:block;
+            white-space:nowrap
+        }
+
+        nav.top-menu{
+            text-align:center;
+        }
+
+        nav.top-menu ul ul ul {
+            top:0;
+            left:100%;
+        }
     </style>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-    <section>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-    </section>
+<nav class="top-menu">
+    <ul>
+        <li>
+            <a href="#">식물</a>
+            <ul>
+                <li>
+                    <a href="#">과일</a>
+                    <ul>
+                        <li><a href="#">사과</a></li>
+                        <li><a href="#">포도</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">야채</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">동물</a>
+            <ul>
+                <li><a href="#">포유류</a></li>
+                <li><a href="#">조류</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
 </body>
-
 <style>
-    section {
-        background-color:red;
-        position:relative;
-    }
-
-    section > div:last-child {
-        position:absolute;
-        bottom:0;
-        right:0;
-        background-color:gold;
-        font-size:50px;
-    }
 </style>
 </html>

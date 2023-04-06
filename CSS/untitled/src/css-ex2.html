@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
     <style>
         /* 노말라이즈 */
         nav, ul, li {
-            list-style:none;
             padding:0;
+            list-style:none;
             margin:0;
         }
 
@@ -15,16 +16,12 @@
             color:inherit;
             text-decoration:inherit;
         }
-        /* 노말라이즈 */
+        /* 노말 라이즈 */
 
-
-        /* 메뉴 아이템 */
         nav.top-menu > ul > li {
             display:inline-block;
-            position:relative;
         }
 
-        /* 1차 메뉴 */
         nav.top-menu > ul {
             display:inline-block;
         }
@@ -36,34 +33,34 @@
             left:0;
         }
 
-        nav.top-menu li:hover > ul {
+        nav.top-menu ul ul ul {
+            top:0;
+            left:100%;
+        }
+
+        nav.top-menu li:hover > ul{
             display:block;
-        }
-
-        nav.top-menu li{
-            position:relative;
-            background-color:#dfdfdf;
-        }
-
-        nav.top-menu li:hover {
-            background-color:black;
-            color:white;
-        }
-
-        nav.top-menu li:hover > ul {
-            color:black;
         }
 
         nav.top-menu {
             text-align:center;
         }
 
-        nav.top-menu ul ul ul{
-            top:0;
-            left:100%;
+        nav.top-menu li{
+            background-color:#dfdfdf;
+            position:relative;
         }
 
-        nav.top-menu a{
+        nav.top-menu li:hover{
+            background-color:black;
+            color:white;
+        }
+
+        nav.top-menu li > ul{
+            color:black;
+        }
+
+        nav.top-menu a {
             white-space:nowrap;
             padding:10px;
             display:block;

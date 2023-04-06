@@ -24,15 +24,20 @@
             color:black;
         }
 
-        nav.top-menu ul ul > li{
-            display:none;
+        nav.top-menu ul ul li{
+            display:block;
         }
 
         nav.top-menu ul ul {
+            display:none;
             position:absolute;
         }
 
-        nav.top-menu ul li:hover ul > li{
+        nav.top-menu > ul > li:hover > ul{
+            display:block;
+        }
+
+        nav.top-menu > ul > li > ul > li:hover > ul {
             display:block;
         }
 
@@ -47,6 +52,7 @@
         }
 
         nav.top-menu ul ul ul {
+            display:none;
             top:0;
             left:100%;
         }
@@ -67,13 +73,25 @@
                         <li><a href="#">포도</a></li>
                     </ul>
                 </li>
-                <li><a href="#">야채</a></li>
+                <li>
+                    <a href="#">야채</a>
+                    <ul>
+                        <li><a href="#">토마토</a></li>
+                        <li><a href="#">당근</a></li>
+                    </ul>
+                </li>
             </ul>
         </li>
         <li>
             <a href="#">동물</a>
             <ul>
-                <li><a href="#">포유류</a></li>
+                <li>
+                    <a href="#">포유류</a>
+                    <ul>
+                        <li><a href="#">강아지</a></li>
+                        <li><a href="#">고양이</a></li>
+                    </ul>
+                </li>
                 <li><a href="#">조류</a></li>
             </ul>
         </li>

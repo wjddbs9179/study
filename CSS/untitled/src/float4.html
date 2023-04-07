@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<article>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <section></section>
+</article>
+안녕하세요.
+</body>
+
+<style>
+    article>div{
+        height:100px;
+        background-color:blue;
+        width:15%;
+        display:block;
+        float:left;
+    }
+
+    article{
+        background-color:red;
+    }
+
+    article::after{
+        content:"";
+        background-color:gold;
+        clear:both;
+        display:block;
+    }
+
+</style>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+</section>
+안녕하세요.
+</body>
+
+<style>
+  section {
+    background-color:red;
+  }
+
+  section > div {
+    float:left;
+  }
+
+  section::after{
+    content:"";
+    display:block;
+    clear:both;
+  }
+</style>
+</html>

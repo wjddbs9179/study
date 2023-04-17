@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // ===, !==
+        // != : 다른가? 같지 않은가? : inequality operator
+        // !== : 엄격하게 다른가? : strict inequality operator
+        var num1 = 9;
+        var num2 = '9';
+        var result = (num1 != num2); //false
+        //다른가? 9랑 '9'는 다르다! 다른거 맞다!
+        //만약에 정상적인 판별이다? 라면 다르니까
+        //다른가? 이게 참이다. - true가 나와야 되는데 ...
+        //판별결과는 false가 나온다...
+
+        document.write(result, "<br>");
+        //값만 비교하니까 9랑 '9'가 같다고 판별된다.
+        result = (num1 !== num2); //값은 같은데 타입이 다르기 때문에 true
+        document.write(result, "<br>");
+        // ==, !=는 값만 확인.
+        // ===, !==는 값과 타입까지 확인
+    </script>
+</head>
+<body>
+</body>
+</html>

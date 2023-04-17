@@ -1,0 +1,9 @@
+자바스크립트 내장객체
+
+window 최상위 계층
+	-document
+	-location
+	-history
+	-screen
+	-navigator
+		-Math,String,Number,Date

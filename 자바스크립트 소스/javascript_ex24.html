@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //비트 연산자
+        //비트끼리 연산하는 연산자
+        // & - 비트 AND
+        // | - 비트 OR
+        // ^ - 비트 XOR
+        // ~ - 비트 반전
+        // >> - 비트 오른쪽 이동
+        // << - 비트 왼쪽 이동
+
+        var num1 = 5;
+        var num2 = 3;
+        //00000000 00000000 00000000 00000101 - 5
+        //00000000 00000000 00000000 00000011 - 3
+        result = num1&num2;
+        //00000000 00000000 00000000 00000101 - 5
+        //00000000 00000000 00000000 00000011 - 3 &
+        //00000000 00000000 00000000 00000001 - 1
+        document.write(result,"<br>"); // 1
+
+        result = num1 | num2;
+        //00000000 00000000 00000000 00000101 - 5
+        //00000000 00000000 00000000 00000011 - 3 |
+        //00000000 00000000 00000000 00000111 - 7
+        document.write(result,"<br>"); // 7
+
+        result = num1^num2;
+        //XOR - Exclusiv OR
+        //Exclude, Exclusive
+        //배제하다, 배타적인
+        //Exclusiv OR : 배타적인 OR
+        //0^0 -> 0
+        //0^1 -> 1
+        //1^0 -> 1
+        //0^0 -> 0
+        //00000000 00000000 00000000 00000101 - 5
+        //00000000 00000000 00000000 00000011 - 3 ^
+        //00000000 00000000 00000000 00000110 - 6
+        document.write(result,"<br>"); // 6
+
+        // ~ - 비트 반전
+        // bitwise complement
+        // 숫자에서 최상위 비트는 부호
+        // MSB - Most Significant Bit, Sign Bit
+        result = ~num1;
+        //00000000 00000000 00000000 00000101 - 5
+        //11111111 11111111 11111111 11111010 - -6
+        document.write(result,"<br>"); // -6
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,10 @@
+DBMS주말 - 1주차 1일
+-클라우드 주소 : http://naver.me/5VAtOLHx
+-암호 : 0422
+-까페주소 : http://cafe.naver.com/phbprogramming
+
+-첫시간 내용:
+-오리엔테이션
+-MySQL설치
+-기초 이론, CRUD
+(CRUD, 제약조건, 조인, LIKE, LIMIT, Auto_Increment java+DBMS연동 프로젝트)

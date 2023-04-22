@@ -1,0 +1,8 @@
+-사전요구사항
+-Net FrameWork 4.5이상
+-Visual C++ Redistributable Package 2019
+
+-설치 프로그램
+-MySQL installer
+
+-비밀번호 root

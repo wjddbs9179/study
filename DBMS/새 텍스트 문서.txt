@@ -210,3 +210,7 @@ update book set price=18000 where title='김미경의 마흔 수업';
 update book set price=15000 where title='스즈메의 문단속';
 사장학개론 가격을 24000원으로 변경
 update book set price=24000 where title='사장학개론';
+
+삭제
+스즈메의 문단속 삭제
+delete from book where title='스즈메의 문단속';

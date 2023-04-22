@@ -1,0 +1,131 @@
+-프론트엔드4 주말 1주차 - 1일차
+-클라우드 주소 : http://naver.me/GTSit4jw
+-암호 : 0107
+-까페주소 : http://cafe.naver.com/phbprogramming
+
+-저번시간 내용 : 
+-HTML+CSS, JS, JQUERY
+-XMLHttpRequest로 서버에 데이터 요청하여 사용 + 동적생성
+
+-이번시간 내용 : 
+-NodeJS설치
+-express웹프레임워크 사용
+(express 웹프레임워크 + DBMS연동 CRUD작업, LIKE, LIMIT 등등)
+
+1.HTML+CSS
+-display, float, position
+-margin, padding
+-배치, 간격조절
+-기능사 UI구현
+2.javaScript
+-로직+DOM
+-입출력, 반복, 조건, 함수, 배열, 객체, JSON
+-나무보다 숲을 보자!
+-document객체
+-투두리스트 만들기
+
+3.jquery
+-선택자, 이벤트, 애니메이션
+-기능사 완성
+-웹디자인 기능사 화면~기능 다짠다?
+-HTML+CSS, JS, JQUERY(종합적인 능력)
+-퍼블리싱, 스크립트 어느정도 된다.
+-기능사 화면~기능 다된다? 그럼 됐다.
+-퍼블리싱 포트폴리오
+-+미니프로젝트(미로, 음악재생기)
+-XMLHttpRequest객체
+-서버랑 통신할 때 쓰는 객체
+-순수 자바스크립트 - X
+-Jquery - $.get$,$.post,$.ajax
+-React - axios
+
+4.NodeJS
+-node.js
+-라이브러리, 엄청 큰 라이브러리, 자바스크립트 엔진
+
+-moment.js-날짜만 관련된 js라이브러리 (소규모)
+-jquery.min.js-화면, 통신 - js 라이브러리(중규모)
+-node.js-프레임워크, 서버 js라이브러리(대규모)
+
+nodejs LTS버전 설치
+C:\program files\nodejs\
+
+환경변수 자동 추가
+node -v
+노드js 버전 확인
+
+calc.exe
+-이 계산기 위치가 이미 환경변수에 등록되어있다.
+-계산기 실행해~!
+-어디 어디에 있는 계산기를 실행한다.
+
+VSCODE - NEW TERMINAL - CMD창
+
+npm install express
+express 모듈 설치
+
+node_modules폴더에 라이브러리 기능~
+package.json에는 설정정보~
+
+node server.js
+서버 생성 위에 3줄~ listen~
+크롬 브라우저로
+http://localhost:4000
+http://localhost:4000/hello
+
+서버 끄는 거는 Ctrl + c
+
+클라이언트 : 브라우저
+서버 : express프레임워크, 장고, 스프링, 플라스크
+
+클라이언트로 http요청을 서버에 날렸다~
+http://localhost:4000
+http://localhost:4000/
+localhost : 내 컴퓨터 아이피주소 : 127.0.0.1
+내 컴퓨터 4000번 포트에 http방식 / 루트요청
+
+http://localhost:4000/hello
+내 컴퓨터 4000포트에 http방식 /hello 요청
+
+클라이언트			서버(express)
+http://localhost:4000	->	app.get('/', 콜백)
+http://localhost:4000/hello	->	app.get('/hello', 콜백)
+
+TCP/IP 소켓 프로그래밍
+C++ TCP/IP 소켓 프로그래밍
+-채팅 서버 만들기
+
+socket
+통신용 소켓
+bind-주소할당
+listen-서버시작후 대기상태
+
+http://localhost:4000/person
+http://localhost:4000/person/이민호
+
+req.params는
+주소에 붙은 인자들을 출력함.
+
+http://localhost:4000/person1/이민호		 ->{ name:'이민호' }
+http://localhost:4000/person2/이민호&20	 ->{ name:'이민호', age:20 }
+http://localhost:4000/person3/이민호&20&176.6	 ->{ name:'이민호', age:20, height:176.6 }
+
+
+person말고
+car요청 받는 서버
+server2.js
+서버 생성 3줄
+중간 요청처리
+listen
+
+REACT프레임워크에서
+
+서버에 요청보내려면
+
+axios메서드
+써서
+서버에 통신요청을 보낸다.
+XMLHttpRequest객체를
+라이브러리화
+$.get, $.post, $.ajax
+axios

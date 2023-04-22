@@ -1,0 +1,212 @@
+show databases;
+-데이터베이스 목록조회
+
+create database practice;
+-practice 데이터베이스 생성
+
+show databases;
+-다시 목록조회 하면 내가 만든
+데이터베이스가 보인다.
+
+use practice;
+-practice 데이터베이스 사용하겠다.
+-데이터베이스 사용후에 안에 테이블 만들고 ...
+데이터 넣고... 그런걸 할 것임...
+
+create table pserson(
+   name varchar(10),
+   age int,
+   height double
+);
+-person 테이블 생성
+-칼럼 name, age, height
+-타입은 가변 문자열, 정수, 실수
+
+-show tables in practice;
+-practice 데이터베이스 안에 있는 테이블들 조회
+
+-show columns in person;
+-person테이블 내부의 컬럼들 조회
+
+
+insert into person(name, age, height)
+ values('이민호', 20, 176.6);
+insert into person(name, age, height)
+ values('정채연', 21, 162.4);
+insert into person(name, age, height)
+ values('송중기', 22, 178.3);
+
+select * from person;
+-person 테이블의 데이터 모두 조회
+
+select name from person;
+-person 테이블의 모든 데이터의 name 컬럼만 조회
+
+drop table person;
+-person 테이블 삭제
+
+select * from person where name='이민호';
+select * from person where name='정채연';
+select * from person where name='송중기';
+select * from person where age=20;
+select * from person where age=21;
+select * from person where age=22;
+select * from person where age>=21;
+select * from person where height>=170;
+
+use practice;
+-practice 데이터베이스 아용하겠다.
+-이게 일종의 작업환경 설정
+
+create table car(
+   model varchar(10),
+   price int,
+   fuel double
+);
+
+insert into car(model, price, fuel)
+values('소나타',2000,11.2);
+
+
+insert into car(model, price, fuel)
+values('아반떼',2200,12.3);
+
+
+insert into car(model, price, fuel)
+values('투싼',2300,10.2);
+
+select * from car;
+-car테이블의 모든 데이터의 모든 칼럼 조회
+
+show tables in practice;
+-practice데이터베이스의 테이블들 조회
+
+show columns in car;
+-car테이블의 모든 컬럼 정보 조회
+
+select * from car where model='아반떼';
+select * from car where price>=2100;
+select * from car where fuel>=12;
+---------------------------------------------------------------
+
+수정, 삭제
+update person set age=30 where name='이민호';
+-이민호 나이를 30살로 변경하겠다.
+
+select * from person;
+-모두조회 하니까 바뀌어있네... 확인된다.
+
+이민호 키를 182.3으로 변경하겠다.
+update person set height=182.3 where name='이민호';
+
+정채연 나이를 23살로 변경하겠다.
+update person set age=23 where name='정채연';
+
+정채연 나이를 25살로 키를 165.4로 변경하겠다.
+update person set age=25, height=165.4 where name='정채연';
+
+-자바, 자바스크립트 (스프링, 리액트)
+-이게 점유율이 높으니까...
+-영어 배우기 ... 이거랑 비슷...
+-영어를 잘해야지 영어 배웠다? 이게 중요한게 아님
+-자리 200개
+
+-파이썬 (웹개발-장고, 플라스크)
+-웹개발, 인공지능, 빅데이터, 웹크롤러
+-자리 10개
+
+-------------------------------------------------------------------
+삭제
+delete from person where name='이민호';
+
+select * from person;
+-------------------------------------------------------------------
+차량 데이터도 수정, 삭제
+-아반떼 가격 1800만원으로 변경
+update car set price=1800 where model='아반떼';
+-소나타 연비 13.4로 변경
+update car set fuel=13.4 where model='소나타';
+....
+아반떼 삭제
+delete from car where model='아반떼';
+....
+
+--------------------------------------------------------------------
+영화 테이블
+-제목-varchar(10)
+-평점-double
+-관객수-int
+create table movie(
+   title varchar(10),
+   rating double,
+   attendance int
+);
+
+슈퍼마리오 브라더스, 8.3, 20000
+insert into movie(title, rating, attendance) values('슈퍼마리오 브라더스', 8.3, 20000);
+존윅4, 7.8, 30000
+insert into movie(title, rating, attendance) values('존윅4', 7.8, 30000);
+드림, 9.0, 40000
+insert into movie(title, rating, attendance) values('드림', 9.0, 40000);
+데이터 3개 넣고
+모두조회
+select * from movie;
+조건조회
+select * from movie where title='슈퍼마리오 브라더스';
+select * from movie where title='존윅4';
+select * from movie where title='드림';
+select * from movie where rating>=8;
+select * from movie where attendance>=30000;
+select * from movie where rating>=8 and attendance>=30000;
+수정
+존윅4의 평점을 8.5로 변경
+update movie set rating=8.5 where title='존윅4';
+드림의 관객수를 50000으로 변경
+update movie set attendance=50000 where title='드림';
+
+삭제
+슈퍼마리오 브라더스 삭제
+delete from movie where title='슈퍼마리오 브라더스';
+
+-----------------------------------------------------
+책 테이블 생성
+-책 제목-varchar(20)
+-책 저자-varchar(20)
+-책 가격-int
+create table book(
+   title varchar(20),
+   writer varchar(20),
+   price int
+);
+
+교보문고 가서 베스트 셀러 책 목록 한번 보고...
+거기서 몇개 데이터 비슷하게~
+김미경의 마흔 수업, 김미경, 16200
+insert into book(title, writer, price) values('김미경의 마흔 수업', '김미경', 16200);
+사장학개론, 김승호, 22500
+insert into book(title, writer, price) values('사장학개론', '김승호', 22500);
+스즈메의 문단속, 신카이 마코토, 11700
+insert into book(title, writer, price) values('스즈메의 문단속', '신카이 마코토', 11700);
+
+전체조회
+select * from book;
+
+조건조회
+제목이 김미경의 마흔 수업
+select * from book where title='김미경의 마흔 수업';
+제목이 사장학개론
+select * from book where title='사장학개론';
+제목이 스즈메의 문단속
+select * from book where title='스즈메의 문단속';
+가격이 20000원 이상
+select * from book where price>=20000;
+가격이 20000원 이하
+select * from book where price<=20000; 
+
+수정
+김미경의 마흔 수업 가격을 18000원으로 변경
+update book set price=18000 where title='김미경의 마흔 수업';
+스즈메의 문단속 가격을 15000원으로 변경
+update book set price=15000 where title='스즈메의 문단속';
+사장학개론 가격을 24000원으로 변경
+update book set price=24000 where title='사장학개론';

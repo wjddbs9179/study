@@ -5,4 +5,4 @@
 -설치 프로그램
 -MySQL installer
 
--비밀번호 root
+-비밀번호 1234

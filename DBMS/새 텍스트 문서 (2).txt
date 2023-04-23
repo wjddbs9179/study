@@ -1,0 +1,354 @@
+HTML+CSS
+JavaScript
+Jquery
+MySQL
+Java
+JSP
+Spring
+Spring프로젝트 배포
+
+show databases;
+-데이터베이스 목록조회
+
+create database practice;
+-practice데이터베이스 생성
+
+use practice;
+-practice 데이터베이스 사용
+(practice데이터베이스를 일종의 작업 환경을 설정하겠다.)
+
+create table test(
+   abc int
+);
+
+insert into test(abc) values(1);
+
+drop table test;
+
+show tables;
+
+tables_in_practice
+practice데이터베이스 안에 있는 테이블들
+
+show columns in book;
+show columns in car;
+show columns in movie;
+show columns in person;
+
+select * from person;
+* : all
+
+select name from person;
+A from B : B에서 A를 가져온다.
+
+select name, age from person;
+
+select * from person where age=25;
+
+select * from person where age>=22;
+
+update person set age=30 where name='정채연';
+
+delete from person where name='정채연';
+
+----------------------------------------------------------------------
+
+use practice;
+
+create table student(
+	id int,
+	name varchar(20),
+	grade int,
+	gpa double
+);
+
+-student 테이블 생성
+-컬럼은 학번, 이름, 학년, 평점
+
+insert into student(id,name, grade, gpa)
+values(2009038018,'박호범',4,3.6);
+
+insert into student(id,name, grade, gpa)
+values(2016038030,'안은진',1,3.3);
+
+insert into student(id,name, grade, gpa)
+values(2013038040,'이민호',2,3.7);
+
+insert into student(id,name, grade, gpa)
+values(2015038050,'정채연',2,4.1);
+
+select * from student;
+select * from student where gpa >=4.0;
+select * from student where grade >=2;
+
+alter : 바꾸다.
+옛날에는 대학교 졸업시에 영어성적이 필수가 아니었는데
+어느순간... 영어성적 토익 700점 무조건 있어야 졸업 시킨다.
+아니면 학교에 영어수업 50시간 이상 듣고 어느정도 영어 잘한다는
+것을 증명하면 졸업 시켜줄게...
+(아무 제한없이 줄업시키니까 취업이 잘 안되더라...
+그래서 학교에서 졸업 정책을 바꿧고 그러다보니 DB항목이 추가되고...
+DB작업을 해야했고, 컬럼을 추가해야했고... 그래서 ALTER 명령을 써야되네...)
+
+alter table student add english int default 0;
+-student테이블에 english컬럼을 추가하겠다.
+정수 기본값은 0인 ...
+
+select * from student;
+
+update student set english=805 where name='박호범';
+
+update student set english=720 where name='안은진';
+
+update student set english=650 where name='이민호';
+
+update student set english=750 where name='정채연';
+
+select * from student;
+
+------------------------------------------------------------------------
+alter table student chage english TOEIC int;
+
+-student테이블의 english컬럼을 TOEIC int
+-student테이블의 english컬럼을 TOEIC으로 변경,
+타입은 정수
+-그냥 alter ~ chage로 컬럼 이름 변경
+-----------------------------------------------------------------------
+
+alter ~ rename
+alter table student rename univ_student;
+student 테이블을 univ_student로 이름 변경
+select * from student; - 없음
+select * from univ_student; - 이걸로 해야됨.
+-----------------------------------------------------------------------
+alter는 테이블구조 자체가 바뀌거나 그럴 경우에 가끔식 쓰는거..
+DBA관점, DBA관련 깊은 명령
+
+update는 회원정보변경, 학생정보, 차량정보, 관리시스템에서
+정보변경 버튼 누르면 빈번하게 일어나는 것...
+-----------------------------------------------------------------------
+select * from univ_student where gpa >= 4.0 and TOEIC >= 800;
+
+A and B
+A와 B 둘다 만족하는 경우
+gpa 4.0이상 그리고 토익 800점 이상
+둘다 만족 하는 경우
+Empty set - 빈 집합 - 없다.
+
+select * from univ_student where
+gpa >= 4.0 or TOEIC >= 800;
+
+A or B
+A또는 B 중에 하나만 만족해도 됨
+gpa 4.0이상 또는 TOEIC 800점 이상
+둘 중에 하나만 만족해도 됨
+-----------------------------------------------------------------------
+BETWEEN
+BETWEEN A AND B
+
+select * from univ_student where TOEIC between 700 and 800;
+-토익 점수 700~800점 데이터 조회;
+----------------------------------------------------------------------
+select * from univ_student order by gpa desc;
+-gpa 순서로 정렬해라 desc(내림차순)
+-gpa 내림차순 순서로 정렬해라
+-desc - descending (하강하는, 내림차순의)
+
+select * from univ_student order by gpa asc;
+
+-asc - ascending (상승하는, 오름차순의)
+---------------------------------------------------------------------
+create table reservation1(
+name varchar(10),
+reserv_name varchar(20),
+reserv_date date
+);
+
+show columns in reservation1;
+
+insert into reservation1 values('김민수', '콘서트1', NOW());
+
+insert into reservation1 values('이민호', '콘서트2', '2020-09-18');
+
+insert into reservation1 values('정채연', '콘서트3', '2020-09-17');
+
+insert into reservation1 values('최성국', '콘서트4', DATE_ADD(NOW(), interval 2 day));
+
+insert into reservation1 values('최성국', '콘서트5', DATE_ADD(NOW(), interval 4 day));
+
+insert into reservation1 values('최성국', '콘서트6', DATE_ADD(NOW(), interval 6 day));
+
+insert into reservation1 values('최성국', '콘서트7', DATE_ADD(NOW(), interval -2 day));
+
+NOW()함수로 현재 날짜 가져온다.
+DATA_ADD로 날짜에 얼만큼 더하고 빼고...
+DATE_ADD(NOW(), interval 2day)
+-현재날짜의 2일 뒤 날짜를 가져온다.
+-현재날짜의 2일 뒤 날짜를 반환한다.
+DATE_ADD(NOW(), interval 4day)
+-현재 날짜의 4일 뒤 날짜를 반환한다.
+DATE_ADD(NOW(), interval -2 day)
+-현재 날짜의 2일전 날짜를 반환한다.
+
+BETWEEN으로 날짜 범위 걸기
+select * from reservation1 where reserv_date between
+'2020-09-15' and '2020-09-18';
+-예약날짜 2020-09-15부터 2020-09-18사이 데이터 조회
+
+between 700 and 800
+between '2020-09-15' and '2020-09-18'
+
+select * from reservation1 where reserv_date between date('2020-09-15') and date('2020-09-18');
+------------------------------------------------------------------------------
+
+create table reservation2(
+	name varchar(10),
+	reserv_name varchar(20),
+	reserv_time time
+);
+
+insert into reservation2 values('김민수','콘서트1',NOW());
+insert into reservation2 values('이민호','콘서트2','09:03:20');
+insert into reservation2 values('정채연','콘서트3',DATE_ADD(NOW(), interval 1 hour));
+
+select * from reservation2;
+
+-----------------------------------------------------------------------------
+1주차 연습문제 9번
+
+create table book(
+	book_title varchar(20),
+	author varchar(10),
+	genre varchar(10),
+	price int
+);
+
+insert into book values('인문학1','김철수','인문학',10000);
+insert into book values('인문학2','이민호','인문학',13000);
+insert into book values('과학1','최성균','과학',15000);
+insert into book values('과학2','박신정','과학',17000);
+insert into book values('철학1','정철민','철학',14000);
+insert into book values('철학2','강용준','철학',18000);
+insert into book values('심리학1','손만호','심리학',12000);
+insert into book values('심리학2','허태균','심리학',13000);
+insert into book values('자기계발1','최대용','자기계발',14000);
+insert into book values('자기계발2','박성호','자기계발',16000);
+
+
+1번. 도서 정보의 모든 항목 조회
+select * from book;
+
+2번. 책 제목과 도서 가격만 조회
+select book_title, price from book;
+
+3번. 장르가 인문학, 과학책만 조회하기
+select * from book where genre='인문학' or genre='과학';
+
+4번. 장르가 철학, 심리학책만 조회하기
+select * from book where genre='철학' or genre='심리학';
+
+5번. 저자가 허태균인 책만 조회하기
+select * from book where author='허태균';
+
+6번. 책 가격이 10000~15000사이 책만 조회하기
+select * from book where price between 10000 and 15000;
+
+7번. 장르가 인문학 책이면서 10000~15000 사이 책만 조회하기
+select * from book where genre='인문학' and price between 10000 and 15000;
+
+8번. 장르가 인문학 책 또는 10000~15000사이 책만 조회하기
+select * from book where genre='인문학' or price between 10000 and 15000;
+
+9번. 장르가 철학 책이면서 10000~15000사이 책만 조회하기
+select * from book where genre='철학' and price between 10000 and 15000;
+
+10번. 장르가 철학 책 또는 10000~15000 사이 책만 조회하기
+select * from book where genre='철학' or price between 10000 and 15000;
+
+11번. 가격 오름차순 정렬하기
+select * from book order by price asc;
+
+12번. 가격 내림차순 정렬하기
+select * from book order by price desc;
+
+13번. 책 저자가 허태균인 책 삭제
+delete from book where author='허태균';
+
+14번. 책 저자가 손만호인 책 가격 11000원으로 변경
+update book set price=11000 where author='손만호';
+
+15번. 책 저자가 박성호인 책 가격 17000원으로 변경
+update book set price=17000 where author='박성호';
+
+
+-----------------------------------------------------------------------------------
+varchar - 가변문자열
+int - 정수
+double - 실수
+date - 년 월 일
+time - 시 분 초
+datetime - 년월일 시분초
+
+-훈련소
+-취업, 실무
+
+-학원 포트폴리오-실제사이트에 비해서 규모가 작다.
+-아기 코끼리
+-코끼리 완전한 형태가...
+-화면, 서버, DB (회원관ㄹ, 검색, 게시판...)
+-코끼리 코도있고 귀도있고 다리도 눈도있고
+-규모가 상대적으로 작더라도 완전한 형태가 되면된다.
+-실제 운영되는 사이트 - 거대 코끼리
+
+varchar vs char
+-varchar - 가변문자열
+-variable character - 가변문자열
+-char - 고정
+
+가변문자열은
+varchar(10)
+10바이트 가변문자열인데
+10바이트보다 작은 데이터가 들어온다?
+그것에 맞게 크기가 조정된다.
+
+char(10)
+10바이트 고정문자열인데
+10바이트 보다 작은 데이터가 들어온다?
+빈 공간은 공백으로 채운다.
+-이건 빈공간 아끼지도 않고?
+그럼 메모리 공간 낭비되네?
+그럼 안좋은거 아닌가? 라고 생각 할 수가 있는데...
+
+가변문자열을 쓰면 좋은곳은
+문자열 길이 변동이 심하다?
+어떨떈 10바이트 였다가, 어떨땐 100바이트?
+이런식으로 변동된다면 가변문자열이 유리하다.
+가변문자열은 길이를 맞추니까 뭔가를 더 한다.
+연산이 더 일어나기 떄문에... 상대적으로 느리다.
+
+고정문자열은 그냥 딱 정해놓고
+낭비가 되든 말든 크기를 재 조정 안한다...
+그러니까 공간은 낭비되는데 성능은 더 좋다.
+이름-3바이트,4바이트,5바이트
+고정문자열이 낫다.
+몇 바이트 낭비되도 되니까.... 신경 덜 쓰고 하는게 낫다.
+그게 더 빠르니까...
+
+자료구조~
+시간복잡도 vs 공간복잡도
+:얼마나 빠르게 실행되냐? 에 중점을 둔
+:얼마나 메모리 절약이 되나? 에 중점을 둔
+----------------------------------------------------------------------
+엣날 컴퓨터 였으면
+메모리 아끼는게 중요한데....
+옛날 컴퓨터 비싸고, 하드도적고, 메모리도 적고
+
+-공공기관 사이트
+-수자원공사
+-가스공사
+-한국부동산원
+-대구중앙도서관
+-LH
+-원자력공사
+-다른점은 사업하는게 다르니까
+-테이블 이름이나... 그런게 다르다.

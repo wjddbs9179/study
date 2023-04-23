@@ -129,3 +129,9 @@ XMLHttpRequest객체를
 라이브러리화
 $.get, $.post, $.ajax
 axios
+
+사칙연산 수행 하는 서버
+app.get('/add/:num1&num2',콜백)
+app.get('/sub/:num1&num2',콜백)
+app.get('/mul/:num1&num2',콜백)
+app.get('/div/:num1&num2',콜백)

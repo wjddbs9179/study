@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>//종료조건이 있는 재귀함수 - 정상적인 재귀함수
+     function reculsive(n){
+            if(n===0){//함수 종료조건 설정
+                return;//함수만 종료
+            }
+            document.write('recursive call! : '+n,'<br>')
+            reculsive(n-1);
+        }
+
+        reculsive(3);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

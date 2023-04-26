@@ -24,16 +24,18 @@ app.get('/person',(req,res)=>{
     console.log('person response!');
 })
 
+//http://localhost:4000/person1/이민호
 app.get('/person1/:name',(req,res)=>{
     console.log(req.params)//request parameters
     console.log(req.params.name);
     console.log('person name response!')
 })
-
+//http://localhost:4000/person2/이민호&20
 app.get('/person2/:name&:age',(req,res)=>{
     console.log(req.params)//request parameters
-    console.log(req.params.name);
-    console.log(req.params.age);
+    // {name:'이민호',age:'20'}
+    console.log(req.params.name); //'이민호'
+    console.log(req.params.age); // '20'
     console.log('person name response!')
 })
 

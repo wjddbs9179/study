@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function rcs(choice){
+            var comChoice = parseInt((Math.random()*3)+1);
+            var com = comChoice===1?'가위':comChoice===2?'바위':'보'; 
+            var me = choice===1?'가위':choice===2?'바위':'보';
+            if(choice-comChoice===1){
+                alert(`나 : ${me} 컴퓨터 : ${com} 결과 : 승리`);
+            }else if(choice-comChoice===2){
+                alert(`나 : ${me} 컴퓨터 : ${com} 결과 : 패배`);
+            }else if(choice-comChoice===-1){
+                alert(`나 : ${me} 컴퓨터 : ${com} 결과 : 패배`);
+            }else if(choice-comChoice===-2){
+                alert(`나 : ${me} 컴퓨터 : ${com} 결과 : 승리`);
+            }else{
+                alert(`나 : ${me} 컴퓨터 : ${com} 결과 : 무승부`);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="rcs(1)">가위</button>
+    <button onclick="rcs(2)">바위</button>
+    <button onclick="rcs(3)">보</button>
+</body>
+</html>

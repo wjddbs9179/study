@@ -27,6 +27,9 @@ app.get("/div/:num1&:num2",(req,res)=>{
     res.send(`${num1} ÷ ${num2} = ${num1/num2}`);
 })
 
+app.get('/',(req,res)=>{
+    console.log("root response!")
+})
 
 
 app.listen(PORT,()=>{

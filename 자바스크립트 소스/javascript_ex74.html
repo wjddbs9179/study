@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //재귀함수
+        //재귀 - 원래의 자리로 되돌아옴.
+        //recursiv - 재귀적인
+        //recursive function - 재귀함수
+        //재귀함수 - 자기 자신 정의안에 자기 자신 호출
+        function reculsive(n){
+            if(n===0){
+                return;
+            }
+            document.write('recursive call! : '+n,'<br>')
+            reculsive(n-1);
+        }
+
+        reculsive(3);
+        //999번 호출하고 나서 그 다음에 오류
+        //Maximum call stack size exceeded - 메모리 초과
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

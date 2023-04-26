@@ -7,15 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-       var gender = prompt("F 또는 M 입력");
-        if(gender==="F"){
-            document.write("여자");
-        }else if(gender==="M"){
-            document.write("남자");
-        }else{
-            document.write("잘못된 값.");
+        //단일 while,for
+        //1. 입력한 단 구구단 출력
+        var dan = parseInt(prompt("단 입력"));
+        for(var i = 1; i <= 9 ; i++){
+            document.write(`${dan} x ${i} = ${dan*i}`,"<br>");
         }
-
     </script>
 </head>
 <body>

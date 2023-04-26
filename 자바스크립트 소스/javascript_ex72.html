@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num=20//전역변수 - 프로그램 종료되면 소멸
+        function hello(){
+            var num=10;//지역변수 - 함수 내부에서 선언한 변수
+            document.write("local variable num = "+num,"<br>")
+            document.write("window.num = "+window.num,"<br>");
+            document.write("this.num = "+this.num,"<br>");
+        }
+        hello(); //함수 호출중에는 사용됨
+        document.write("global variable num = " +num,"<br>");//20 - 전역변수
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

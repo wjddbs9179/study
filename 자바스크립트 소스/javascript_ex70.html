@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //LCM : Least Common Multiple : 최소공배수
+        function LCM(n1,n2){
+            var min = n1<n2?n1:n2;
+            var max = n1>n2?n1:n2;
+
+            var lcm = max;
+            while(true){
+                if(lcm%max===0&&lcm%min===0){
+                    return lcm;
+                }else{
+                    lcm+=max;
+                }
+            }
+        }
+
+        var num1 = parseInt(prompt('값1 입력'));
+        var num2 = parseInt(prompt('값2 입력'));
+        document.write(`최소 공배수는 ${LCM(num1,num2)}이다.`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

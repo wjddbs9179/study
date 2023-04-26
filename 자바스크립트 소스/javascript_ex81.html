@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var time = 0;
+        var playing = false;
+        var interval = null;
+
+        function myFunc(){
+            console.log(time);
+            time++;
+        }
+
+        function start(){
+            if(!playing){
+                interval = setInterval(myFunc,1000);
+                //setInterval 반환값은
+                //첫번째 setInterval실행되면 1반환
+                //두번째 setInterval실행되면 2반환
+                //...
+                playing=true;
+            }else{//playing===true
+                alert('재생중!');
+            }
+        }
+
+        function pause(){
+            playing=false;
+            clearInterval(interval);
+        }
+    </script>
+</head>
+<body>
+    <button type="button" onclick="start()">시작</button>
+    <button type="button" onclick="pause()">정지</button>
+</body>
+</html>

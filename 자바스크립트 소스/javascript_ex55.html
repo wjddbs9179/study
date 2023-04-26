@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //2. 입력한 숫자1부터 숫자2까지 합
+        //(ex. 1, 100입력했다. 1~100까지 합 : 5050)
+        var num1 = parseInt(prompt("시작 숫자 입력"));
+        var num2 = parseInt(prompt("마지막 숫자 입력"));
+        
+        document.write(`시작 숫자 = ${num1}`,"<br>");
+        document.write(`마지막 숫자 = ${num2}`,"<br>");
+
+        var result = 0;
+
+        for(var i = num1 ; i<= num2; i++){
+            result+=i;
+        }
+
+        document.write(`결과 = ${result}`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

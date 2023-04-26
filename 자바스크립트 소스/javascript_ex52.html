@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //2중첩 while
+        var dan = 2;
+        var i=1;
+        while(dan <= 9){//외부 while문 - 단변화
+            i=1;
+            while(i <= 9){//내부 while문 - 1~9
+                document.write(`${dan} x ${i} = ${dan*i}`,"<br>");
+                i++;
+            }
+            document.write("<br>");
+            dan++;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

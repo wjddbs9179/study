@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    //최소 공배수 구하는 함수
+    function f (a,b){
+        var max = a>b?a:b;
+        var min = a<b?a:b;
+        var i = max;
+        while(true){
+            if(i%min===0){
+                return i;
+            }else{
+                i+=max;
+            }
+        }
+    }
+
+    document.write("최소공배수 = " + f(parseInt(prompt("숫자1 입력")),parseInt(prompt("숫자2 입력"))));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

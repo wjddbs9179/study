@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var m = 0;
+        var s = 0;
+
+        function myFunc(){
+            if(m<10&&s<10){
+                console.log(`0${m}:0${s}`);
+            }else if(m<10&&s>=10){
+                console.log(`0${m}:${s}`);
+            }else if(m>=10&&s<10){
+                console.log(`${m}:0${s}`);
+            }else{
+                console.log(`${m}:${s}`);
+            }
+            s++;
+            if(s===60){
+                m++;
+                s=0;
+            }
+            if(m===60){
+                m=0;
+            }
+        }
+        setInterval(myFunc,1000);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

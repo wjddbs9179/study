@@ -1,0 +1,104 @@
+-프론트엔드4 주말 1주차 - 1일차
+-클라우드 주소 : http://naver.me/GTSit4jw
+-암호 : 0107
+-까페주소 : http://cafe.naver.com/phbprogramming
+
+-저번시간 내용 : 
+-nodejs 설치, express 웹 프레임워크 사용
+-REST API 서버 작성(get방식 요청 처리)
+
+-이번시간 내용 : 
+-REST API서버 + 배열연계
+-REST API서버 + 로컬 스토리지 연계
+-POST맨으로 GET, POST, PUT, DELETE 요청 전송하기
+(React + Express + MySQL : 풀스택 구조 갖추기가 목표)
+
+.js
+moment.js-날짜 관련 모먼트js-(소규모)
+
+jquery.min.js-DOM관련, 통신($.get.$.post...)-(중규모)
+
+node.js-리액트, 뷰, 서버, 시스템~
+-리액트 프로젝트 생성, 뷰, 앵귤러~
+-REST API 구축
+-채팅, 알림챗 -socket.io
+-express - DB연동되는 서버
+-express - 파일처리~
+-React-Express-MySQL
+-React-???????- MySQL
+-프론트엔드-백엔드-DBMS
+
+-nodejs
+-express 웹 프레임워크를 사용해서 REST API 서버 구축
+-nodejs 기반 express 웹 프레임워크를 사용해서 API 서버 구축
+
+nodejs 설치하고
+npm install express
+npm - node pacakage manager
+express 설치하고
+
+사람정보 처리하는 간단한 API서버 만들고
+
+그 다음 차량, 학생, 책, 영화 등등
+컨텐츠만 바꿔서 반복연습
+
+(keydown, myFuc)
+function myFnc(e){
+	//메게변수 e에 이벤트 객체 정보 그냥 다 넘어온다.
+}
+
+req.params
+req.query
+-쿼리스트링쓸때, 쿼리스트링은 가변적, 2개,3개,4개...
+https://movie.daum.net/search?q=해리포터#tab=all
+?q=해리포터#tab=all
+쿼리스트링
+
+https://movie.daum.net/moviedb/main?movieId=35497
+?movieId=35497
+
+https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=hello
+?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=hello
+
+다음영화 검색, 네이버 검색창 검색
+
+media query
+-장치에 질의한다~ 가로길이가 얼마냐?
+
+SQL = (Structured Query Language)
+-구조화된 질의 언어
+-SQL 문
+
+?query=hello&fbm=0
+-쿼리스트링
+
+http://localhost:4000/add/10&20
+http://localhost:4000/add/10&20&30
+
+http://localhost:4000/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=hello
+
+네이버 검색 메인화면에서 hello 입력하고 검색 버튼 클릭하면
+/search.naver 이 요청이 서버에 전달되고 화면 바뀌고, 바뀐 화면에서 쿼리스트링에 부착된 정보들로 데이터 뽑아서
+바뀐 화면에 정보 가져와서 뿌린다~
+
+
+/person/2
+-아이디 2번인 사람정보는 있으니까 찾아서 응답이 되는데...
+/person/4
+-아이디가 4번인 사람정보는 없는데, 못찾았을 때
+처리하는 로직이 없어서 제대로 응답이 안됨... 이걸 해결...
+
+POST맨 설치하고
+요청방식 POST설정하고
+http://localhost:4000/person
+요청 날리면
+서버의 app.post('/person',콜백) 부분이 요청을 받아들임.
+
+React에서
+입력창에서 입력한거 읽어서
+추가버튼 클릭한다 -> REST API <-> DBMS
+브라우저 <-> express
+POST맨 <-> express
+POST맨 - REST API서버와 통신 테스트하기 위한 클라이언트 프로그램
+React개발자, node개발자
+-디자인, 퍼블리싱, 프론트엔드개발

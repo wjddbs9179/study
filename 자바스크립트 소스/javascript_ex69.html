@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //GCD : Greatest Common Divisor
+        function GCD(n1,n2){
+            //1,2,3,4,5,6 - 1~6
+            //6,5,4,3,2,1 - 6~1
+            var max = n1>n2?n1:n2;
+            var min = n1<n2?n1:n2;
+            for(var i=min; i>=1; i--){
+                if(n1%i===0 && n2%i===0){
+                    return i;
+                }
+            }
+        }
+        var num1 = parseInt(prompt('값1 입력'));
+        var num2 = parseInt(prompt('값2 입력'));
+        document.write(`최대공약수 = ${GCD(num1,num2)}`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

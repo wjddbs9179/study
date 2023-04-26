@@ -7,15 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-       var gender = prompt("F 또는 M 입력");
-        if(gender==="F"){
-            document.write("여자");
-        }else if(gender==="M"){
-            document.write("남자");
-        }else{
-            document.write("잘못된 값.");
-        }
-
+       var num = parseInt(prompt("숫자 입력"));
+       if(num%2===1){
+        document.write("홀수");
+       }else if(num===0){
+        document.write("0");
+       }else{
+        document.write("짝수");
+       }
     </script>
 </head>
 <body>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num=20 // 전역변수 - 프로그램 종료되면 소멸
+        function hello(){
+            document.write(num,"<br>");
+        }
+        //호이스팅(hoisting) 함수 선언문은 최상단으로 자동으로 끌어 올려지므로 선언보다 호출을 먼저 하는게 가능. C언어 등 안되는 언어도 있음.
+        hello();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

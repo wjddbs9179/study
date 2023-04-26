@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    //최대 공약수 구하는 함수
+    function f (a, b){
+        var max = 0;
+        if(a<b){        
+            for(var i = 1 ; i <= a ; i++) {
+                if(a%i===0 && b%i===0){
+                    max=i;
+                }
+            }
+        }else{
+            for(var i = 1 ; i <= b ; i++) {
+                if(a%i===0 && b%i===0){
+                    max=i;
+                }
+            }
+        }
+        return max;
+    }
+
+    document.write("최대공약수 = "+f(parseInt(prompt("숫자1")),parseInt(prompt("숫자2"))));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

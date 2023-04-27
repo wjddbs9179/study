@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //대수의 법칙
+        //큰 수의 법칙 - big num's law
+        //시행횟수가 늘어나면 통계적 확률에 근접한다.
+        //주사위 각 눈금 나올 확률 - 16.6%
+        //주사위 6번 던졌다? 1 2 3 4 5 6 - 이론적
+        //주사위 6번 던졌다? 1 1 1 2 3 4
+        //1000, 10000, 1000000 ... 16.6%
+        var dice = [0,0,0,0,0,0,0];
+        var dicePer = [0,0,0,0,0,0,0];
+        var num = 0;
+        var count = prompt('주사위 횟수?');
+        var count = parseInt(count);
+        for(var i = 1 ; i<=count;i++){
+            num = Math.ceil(Math.random()*6);
+            dice[num]++;
+        }
+
+        for(var i = 1; i< dicePer.length;i++){
+            dicePer[i] = (dice[i]/count)*100;
+        }
+
+        for(var i = 1 ; i < dicePer.length;i++){
+            document.write(`${i}의 확률 : ${dicePer[i].toFixed(2)}%`,"<br>");
+        }
+        document.write("<br>");
+        for(var i = 1;i<dice.length;i++){
+            document.write(`${i}횟수 : ${dice[i]}`,"<br>");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

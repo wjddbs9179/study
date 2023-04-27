@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var lotto = [0,0,0,0,0,0];
+        //var lotto = new Array(6);
+        //로또복권
+        //1~45 : 랜덤값 1~45 배열에 차례로 저장.
+        //중복 데이터 발생
+        //23,23,12,14,15,41
+
+        for(var i = 0 ; i < lotto.length ; i++){
+            var rn = Math.ceil(Math.random()*45);
+            for(var j = i ; j >=0;j--){
+                if(rn === lotto[j]){
+                    rn = Math.ceil(Math.random()*45);
+                    j=i;
+                }
+            }
+            lotto[i] = rn;
+            document.write(`${i+1}번째 Ball = ${lotto[i]}`,"<br>");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

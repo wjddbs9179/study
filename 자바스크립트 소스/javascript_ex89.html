@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    //2. 길이가 3인 배열 만들고
+    //학생 국영수 성적 입력받고
+    //배열에 저장한 다음에
+    //다시 꺼내서...
+    //총점 평균 계산해서 출력
+    var arr = new Array(3);
+    arr[0] = parseInt(prompt('국어 점수?'));
+    arr[1] = parseInt(prompt('영어 점수?'));
+    arr[2] = parseInt(prompt('수학 점수?'));
+
+    var sum = 0;
+    for(var i = 0; i<arr.length;i++){
+        sum+= arr[i];
+    }
+    var avg = Math.round((sum/arr.length)*10)/10;
+
+    document.write(`총점 : ${sum}`,"<br>");
+    document.write(`평균 : ${avg}`,"<br>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var arr = []
+        var arr = new Array(0);
+        // [] - 본 배열
+        //N행 M열 배열을 만들겠다. - 2행3열
+        //본 배열에 들어갈 원소 배열을 만들고...
+        //그걸 push
+        //[], [10], [10,10] , [10,10,10]
+        // [ [10,10,10] ]
+        //[], [10], [10,10] , [10,10,10]
+        // [ [10,10,10], [10,10,10] ] - 완성
+        var N = parseInt(prompt('몇 행?'));
+        var M = parseInt(prompt('몇 열?'));
+
+        for(var i = 0; i<N;i++){
+            arr.push(new Array(0));
+            for(var j = 0 ; j<M; j++){
+                arr[i].push(parseInt(prompt(`${i+1}번째 학생의 ${j+1}번째 점수`)));
+            }
+        }
+
+        console.log(arr);
+
+        for(var i = 0;i<arr.length;i++){
+            var sum = 0;
+            for(var j = 0 ; j < arr[i].length ; j++){
+                sum += arr[i][j];
+            }
+            var avg = Math.ceil(sum/arr[i].length*100)/100;
+            document.write(`${i+1}번째 학생의 총점 : ${sum}`,"<br>");
+            document.write(`${i+1}번째 학생의 평균 : ${avg}`,"<br><br>");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Date객체의 내장메서드 써서
+        //년월일 시분초
+        //뽑아서 정보 출력
+        //이걸 setInterval붙여서
+        //1초마다 다시 갖고와서
+        //시계처럼 되게...
+
+                //내장객체 - 원래 만들어져 있는 것
+        //그냥 써라하고 ~ 원래 있는 것
+        function time(){
+            var date = new Date();
+            //Date객체는 날짜관련 정보가 있는 객체
+            //Date객체 생성해서 date변수에 할당
+            var year = date.getFullYear();
+            var month = date.getMonth()+1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+            var format = `${year}-${month}-${day} ${hour}:${min}:${sec}`;
+            console.log(format);
+        }
+        setInterval(time,1000);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

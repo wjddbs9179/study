@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //객체 - Object
+        //객체 - 사용자 정의 객체 (내가 만드는 거), 내장객체(원래 있는거)
+        //사용자 정의 객체
+        //객체 리터럴 방식
+        var person = {
+            name : 'kim',
+            age : 20,
+            height : 176.6,
+            introduce : function(){
+                document.write(`hi my name is ${this.name}`);
+            }// this는 객체의 주소
+        }
+        // 사용자가 직접 person객체 만들었다.
+        document.write(person.name,"<br>");
+        person.introduce();
+        //person, car, movie, book, student......
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

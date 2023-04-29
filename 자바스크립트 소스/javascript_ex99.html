@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //점-선-면-입체
+        //변수-1차원배열-2차원배열-3차원배열-
+        var arr = [
+            [10,20,30], //0행
+            [40,50,60], //1행
+            [70,80,90]  //2행
+        ]// 0열 1열 2열
+        // 2행 3열 2차원 배열
+        // 행 - 가로줄, 열 - 세로줄
+        console.log(arr);
+        document.write(arr[0][0],"<br>");
+        document.write(arr[0][1],"<br>");
+        document.write(arr[0][2],"<br>");
+        document.write(arr[1][0],"<br>");
+        document.write(arr[1][1],"<br>");
+        document.write(arr[1][2],"<br>");
+        document.write(arr[2][0],"<br>");
+        document.write(arr[2][1],"<br>");
+        document.write(arr[2][2],"<br>");
+
+        for(var i = 0;i<arr.length;i++){
+            for(var j = 0;j<arr[i].length;j++){
+                document.write(arr[i][j],"<br>");
+            }
+        }
+        //10 - 0행 0열
+        //20 - 0행 1열
+        //30 - 0행 2열
+        //40 - 1행 0열
+        //50 - 1행 1열
+        //60 - 1행 2열
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

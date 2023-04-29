@@ -1,0 +1,62 @@
+회원정보 테이블
+-아이디 - id - pk (primary key)
+-비밀번호
+-이름
+-성별
+-주소
+
+create table member (
+ id varchar(20) primary key,
+ pw varchar(20),
+ name varchar(20),
+ gender varchar(5),
+ address varchar(100)
+);
+
+
+주문정보 테이블
+-주문자 아이디 - order_id - fk (foreign key)
+-상품 아이디
+-상품 이름
+-상품 갯수
+
+create table orders(
+ member_id varchar(20),
+ foreign key(member_id) references member(id),
+ order_id varchar(20),
+ order_name varchar(20),
+ order_quantity varchar(20)
+);
+
+insert into member values('1','1234','회원1','남자','경북');
+insert into member values('2','1234','회원2','여자','대구');
+insert into member values('3','1234','회원3','남자','경기도');
+insert into member values('4','1234','회원4','여자','강원도');
+insert into member values('5','1234','회원5','남자','제주도');
+
+insert into orders values('1','1','회원1의 주문1','10');
+insert into orders values('2','2','회원2의 주문1','15');
+insert into orders values('3','3','회원3의 주문1','20');
+insert into orders values('4','4','회원4의 주문1','25');
+insert into orders values('5','5','회원5의 주문1','30');
+
+
+(pk-fk연결하고...)
+(회원정보 테이블의 아이디를 삭제하거나,
+수정하려하면...오류가 난다... 왜냐하면
+부모 테이블의 기본키 값을 함부로 바꾸면
+이것을 참조하는 자식 테이블의 외래키값에
+문제가 생긴다...)-오류확인
+delete from member id=1;
+update member set id=7 where id=1
+
+(자식테이블의 주문자 아이디에 
+부모테이블에 없는 아이디일 경우
+데이터를 넣을수 없다.)-오류확인
+insert into orders values('7','6','없는 회원의 주문 테스트','45');
+
+-목표
+FK를 설정함으로써 생기는 제약이 무엇인가?
+-부모테이블쪽, 자식테이블쪽
+-어떤 제약이 걸리는지 확인
+-FK를 쓰는 이유를 이해했다.

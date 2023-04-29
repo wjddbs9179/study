@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //1명의 Nㅐ의 성적을 받아서 총점 평균
+        //var arr = [];
+        var arr = new Array(0);
+        var score = 0;
+        var sum = 0;
+        var avg = 0;
+        //new -apahfl 생성 연산자
+        //길이가 0인 Array객체 생성
+        //객체 : 속성 + 함수
+        var N = prompt('몇개의 성적?')
+        N = parseInt(N);
+        for(var i=1;i<=N;i++){
+            score = prompt(`${i}번째 성적 입력`);
+            score = parseInt(score);
+            arr.push(score);
+            sum+=score;
+        }
+        avg = Math.ceil(sum / N * 100)/100;
+        document.write(`총점 : ${sum}`,"<br>");
+        document.write(`평균 : ${avg}`,"<br>");
+
+        //[], [90],[90,80],[90,80,70],[90,80,70,86]
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

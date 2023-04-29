@@ -1,0 +1,451 @@
+각자 만들고 싶은 테이블을 하나 만든다.
+반드시 기본키를 포함하여야 한다.
+
+데이터는 최소 5개 이상 삽입(insert 5개 이상)
+update 5개 이상 해보기
+delete 5개 이상 해보기
+select 5개 이상 해보기
+
+create table animal(
+ name varchar(20),
+ height int,
+ weight int
+);
+
+drop table animal;
+
+insert into animal values('사자',190,200);
+insert into animal values('코끼리',300,4000);
+insert into animal values('펭귄',110,35);
+insert into animal values('고양이',30,5);
+insert into animal values('강아지',40,7);
+
+update animal set height = 180 where name='사자';
+update animal set weight = 40 where name = '펭귄';
+update animal set height = 350 where name = '코끼리';
+update animal set weight = 35 where name = '고양이';
+update animal set height = 45 where name = '강아지';
+
+delete from animal where name='사자';
+delete from animal where name='코끼리';
+delete from animal where name='펭귄';
+delete from animal where name='고양이';
+delete from animal where name='강아지';
+
+select * from animal where weight>=100;
+select * from animal where height>=100;
+select * from animal where weight between 10 and 50;
+select * from animal where height in (45, 350);
+select * from animal where name='강아지' or name='고양이';
+select * from animal order by height desc;
+
+CRUD , and, or, between, order by, asc, desc
+DATE, TIME, DATTIME
+-------------------------------------------------------------------------
+show databases;
+- 데이터베이스 목록조회
+
+create database practice;
+-practice 데이터베이스를 만들겠다.
+
+use practice;
+-practice 데이터베이스를 사용하겠다.
+
+create table person(
+ name varchar(10),
+ age int,
+ height double
+);
+-person테이블 생성 (컬럼이름이 name, age, height)
+-name 컬럼은 10바이트 가변문자열
+-age컬럼은 정수
+-height컬럼은 실수
+
+insert into person(name, age, height) values('이민호', 20, 176.6);
+insert into person(name, age, height) values('정채연', 21, 162.4);
+insert into person(name, age, height) values('송중기', 22, 178.2);
+
+select * from person;
+select name from person;
+select name, age from person;
+select name, age, height from person;
+select * from person where name = '이민호';
+where 조건절
+select * from person where name='이민호';
+select * from person where age=20;
+select * from person where age>=21;
+select * from person where height>=172.3;
+select * from person where age>=21 and height>=172.3;
+select * from person where age>=21 or height>=172.3;
+select * from person where not age=20;
+
+수정 - update
+update person set age=30 where name = '이민호';
+update person set age=30, height=182.5 where name = '이민호';
+
+삭제 - delete
+delete from person where name='이민호';
+------------------------------------------------------------------------
+alter ~ add
+alter ~ change
+alter ~ rename
+...
+alter 테이블 변경~
+alter 는 시스템이 바뀔 때...
+학생 졸업기준에 영어 성적이 추가 되었다...
+
+alter ~ add 로 컬럼 추가하고...
+컬럼을 추가한다면... 많은게 바뀐다...
+컬럼이 추가되면 데이터베이스를 가져오는 백엔드에서 함수도 바뀌고...
+프론트엔드 화면쪽에서도 뭔가 더 추가되야 되고...
+(1~2년 최근에 대구 도서관 DB통합... 일주일간 도서관 사용 안됐다...)
+--------------------------------------------------------------------------
+order by : 정렬 순서 결정
+select * from person order by age desc;
+select * from person order by age asc;
+order by : ~에 의한 순서
+order by age : age에 의 한 순서
+desc : descending(하강하는, 내림차순의)
+asc : ascending(상승하는, 오름차순의)
+---------------------------------------------------------------------------
+1. DBMS - MySQL, Oracle, MariaDB, MongoDB
+2. 백엔드 - Java
+3. 백엔드-DBMS - java+DBMS
+4. 프론트엔드 - HTML + CSS, JavaScript, Jquery
+5. 프론트엔드-백엔드-DBMS - JSP
+6. 프론트엔드-백엔드-DBMS - 스프링
+7. 스프링 프로젝트
+
+--------------------------------------------------------------------------
+제약조건 - constraints
+-primary key - 기본키, 주요키
+-foreign key - 외래키
+-unique key - 유니크키, 고유키
+-not null - null값을 허용 안한다.
+-check - 체크제약조건, 값을 체크해서...거를때
+-default - 기본값 설정
+---------------------------------------------------------------------------
+primary key
+-not null and unique
+-null값을 허용하지 않고, 중복허용안함
+-이게 있어서 데이터 중복 방지가 된다.
+-아이디, 주민번호, 학번...
+-이게 적용되면 DB에 아예 중복데이터가 안들어간다.
+프론트엔드-백엔드-DBMS
+프론트엔드 : UI구성, 값필터링, 검사
+백엔드 : 값 검사, DB연결, 파일처리
+학번은 중복이 되면 안되는데... 프로그래머 실수로
+똑같은 값을 못걸렸다... 그걸 DB에 넘겼다.
+중복데이터는 들어가게 되면 생기는 문제...
+학과사무실에서 행정직원이 입력을... 한다...
+실수로 학번을 똑같이 적었다. 그래도 DBMS상에서
+원천 차단 된다...
+--------------------------------------------------------------------------
+create database practice2;
+
+use practice2;
+
+create table univ_student(
+ id int primary key,
+ name varchar(20),
+ major varchar(20),
+ year int,
+ enterdate DATE
+);
+
+show columns in univ_student;
+-univ_student테이블의 컬럼을 조회한...
+id에 기본키 설정
+-NULL - No
+-key - PRI(primary key)
+
+insert into univ_student
+values(2018038018,'송중기','컴퓨터공학',3,'2018-03-01');
+
+insert into univ_student
+values(2018038018,'이민호','컴퓨터공학',3,'2018-03-01');
+
+-id에는 기본키가 설정되어있어서 널값을 허용하지 않고
+중복데이터도 허용하지 않는다.
+
+-오류 1062(230000
+-Duplicate Entry '2018038018' for key
+-'2018038018'이 데이터가 중복이 된다.
+
+insert into univ_student
+values(2019036022,'이수현','컴퓨터공학',2,'2019-03-01');
+
+insert into univ_student
+values(2019050030,'신동엽','화학공학',2,'2019-03-01');
+
+insert into univ_student
+values(2020044005,'김무열','화학공학',2,'2020-03-01');
+
+insert into univ_student
+values(2020044010,'마동현','고분자공학',1,'2020-03-01');
+
+insert into univ_student
+values(NULL,'마동현','고분자공학',1,'2020-03-01');
+-에러 1048 : 컬럼id는 null값이 될 수 없다.
+
+select * from univ_student;
+
+drop table univ_student;
+-테이블 자체가 삭제
+
+truncate table univ_student;
+-데이터만 모두 제거
+------------------------------------------------------------------------
+외래키 (foreign key)
+-다른 테이블의 기보니를 참조하는 열(컬럼)
+-외래키를 왜 써야하나?
+(논쟁 : 외래키는 안정성 측면에서는 좋은데, 사실 번거롭다...)
+-회원정보 테이블의 id컬럼에 기본키가 있다.
+-주문정보를 사용해야겠다.
+-member 테이블
+-id, pw, name, address, phone + order_item, order_date
+-id : primary key
+-'asdf1234', 'asdf1234','김철수','대구','010','김치','2020'
+-'asdf1234', 'asdf1234','김철수','대구','010','쇼파','2021'
+...이게 안된다... 아이디에 중복방지가 되서 데이터 여러개 못넣는다.
+
+회원정보, 주문정보
+회원정보 : id, pw, name, address, phone
+주문정보 : id, order_item, order_date
+회원정보 id는 기본키
+주문정보 id는 외래키
+외래키에는 중복데이터가 들어갈수있고.... 기본키랑 연결 시켜준다.
+---------------------------------------------------------------------------
+학생정보, 캠프정보
+학생 학번은 중복이 들어가면 안되고..
+캠프정보에는 학번이 중복으로 들어가야 된다.
+한 학생이 여러개의 캠프에 참가할수있으니까...
+
+create table univ_camp(
+ camp_name varchar(20),
+ camp_id int,
+ foreign key(camp_id) references univ_student(id),
+ name varchar(20),
+ major varchar(20),
+ year int
+);
+
+foreign key(camp_id) references univ_student(id)
+-외래키 camp_id univ_student테이블의 기본키 id를 참조한다.
+
+show columns in univ_camp;
+외래키 camp_id는 MUL - multipe - 중복데이터 허용
+
+insert into univ_camp
+values('IT취업캠프',2018038018,'송중기','컴퓨터공학',3);
+
+insert into univ_camp
+values('면접 스피치 캠프',2018038018,'송중기','컴퓨터공학',3);
+
+insert into univ_camp
+values('면접 스피치 캠프',2023038033,'최강희','컴퓨터공학',3);
+-이 데이터 못넣음
+
+외래키가 기본키를 참조한다.
+외래키에 넣을 수 있는 데이터는 기본키에 존재하는 데이터만 넣을 수 있다.
+
+최강희 2023038033 이 데이터는 학생정보에 없는 학번이다.
+이게 만약에 데이터가 들어가게 된다면... 문제가 되는게...
+학생정보에 있지도 않은 학생이 캠프에 참가하게 된다.
+-쓰레기 데이터, 의미없는 데이터
+
+외래키를 설정하면 기본키에 있는 데이터만 넣고, 중복혀용
+
+insert into univ_camp
+values('심리힐링 캠프',2019036022,'이수현','전자공학',2);
+
+insert into univ_camp
+values('전공역량 강화 캠프',2019050030,'신동엽','화학공학',2);
+
+select * from univ_student;
+select * from univ_camp;
+---------------------------------------------------------------------------------------
+univ_student - 기본키 테이블 - 부모 테이블
+univ_camp - 외래키 테이블 - 자식 테이블
+외래키 테이블이, 기본키 테이블을 참조한다.
+
+부모테이블 제약 : 외래키가 참조하는 데이터를 함부로 삭제, 수정할 수없다.
+자식테이블 제약 : 기본키에 없는 데이터 못넣는다. 없는 데이터로 변경 불가능.
+---------------------------------------------------------------------------------------
+부모테이블 제약
+delete from univ_student where id=2018038018;
+-기본키 테이블의 2018038018학번을 삭제하지 못한다.
+-왜냐하면 이 학번을 삭제하면 이 학번을 참조하는 외래키 테이블의 데이터가
+의미가 없어지니까... 외래키가 참조하는 데이터는 함부로 삭제못한다.
+
+cannot delete or update  parent row
+:부모 row(행)를 삭제 하거나 수정할 수없다.
+a foreign key constraint fails
+:외래키 제약 실패
+
+univ_student테이블 (기본키 테이블, 부모테이블)
+2018038018 송중기 데이터가 삭제되면 문제가 된다.
+그럼 univ_camp에서 학생정보에 있지도 않은 데이터를 사용하게 되니까...
+
+2018038018 송중기 데이터가 수정이 되면 문제가 된다.
+수정이 되면 어짜피 사라지는거랑 똑같은데...
+그럼 univ_camp에서 학생정보에 있지도 않은 데이터를 사용하게 되니까...
+--------------------------------------------------------------------------------------
+자식테이블 제약
+insert into univ_camp
+values('빅데이터 캠프',2023038044,'최강희','컴퓨터공학',1);
+-이거 안됨...
+-부모테이블의 기본키에 존재하지 않는 데이터는 못넣는다.
+-cannot add or update a child row
+-자식 row(행) 추가하거나 수정할 수 없다.
+-a foreign key constraints fails
+-외래키 제약 실패
+
+update univ_camp set camp_id=2023038044 where name='송중기';
+-2023038044는 학생정보에 없는 학번이기 떄문에 함부로 수정할 수 없다.
+--------------------------------------------------------------------------------------
+데이터 무결성을 확보하는게 제약조건
+무결성 : 정확성, 일관성, 유효성
+(데이터에 결점이 없다.)
+
+기본키, 외래키 어떻게 설정하고
+기본키, 외래키를 설정함에 따라 생기는 제약조건이 어떻게 되는가?
+이해하면 모두 완료된 것
+--------------------------------------------------------------------------------------
+기본키 테이블 - member (회원)
+외래키 테이블 - order_info(주문정보)
+create table member2(
+ id varchar(20) primary key,
+ pw varchar(20),
+ name varchar(20),
+ gender varchar(10),
+ address varchar(100)
+);
+
+show columns in member;
+-primary key : not null and unique(null 값을 허용 안하고 중복허용안함)
+
+insert into member2 values('asdf1234','asdf1234','이민호','남성','대구광역시 동구 효목동');
+
+insert into member2 values('asdf1234','asdf1234','김철수','남성','대구광역시 동구 불로동');
+-오류 - 아이디 중복방지
+
+insert into member2
+values(NULL,'asef1234','김철수','남성','대구광역시 동구 불로동');
+-오류 - 아이디 NULL값 방지
+
+insert into member2
+values('qwer1234','qwer1234','정채연','여성','대구광역시 서구 내당동');
+
+insert into member2
+values('zxcv1234','zxcv1234','송중기','남성','대구광역시 북고 대현동');
+--------------------------------------------------------------------------------------
+외래키 테이블 - 주문정보
+create table order_info(
+ order_id varchar(20),
+ foreign key(order_id) references member2(id),
+ id varchar(20) primary key,
+ name varchar(20),
+ quantity int
+);
+
+show columns in order_info;
+
+insert into order_info
+values('asdf1234','AA-1234','라면',1);
+
+insert into order_info
+values('ffff1234','AA-1234','라면',1);
+-cannot add or update a child row
+-자식 row에 추가하거나 수정할 수 없다.
+-회원정보에 없는 아이디를 추가 할 수 없다.
+-이게 만약에 된다면 큰 문제... 회원 정보에 있지도 않은 아이디가
+주문정보 아이디에 들어가게 되면 .... 이건 의미없는 데이터
+
+insert into order_info
+values('asdf1234','BB-1234','음료수',10);
+
+insert into order_info
+values('asdf1234','CC-1234','사과',20);
+
+-외래키는 NULL값과 중복허용
+
+insert into order_info
+values('qwer1234','DD-1234','포도',10);
+
+insert into order_info
+values('zxcv1234','EE-1234','감귤',10);
+--------------------------------------------------------------------------------------
+select * from member2;
+select * from order_info;
+--------------------------------------------------------------------------------------
+외래키 떄문에 생긴 제약
+외래키를 설정해서, 부모테이블, 자식테이블에 어떤 제약이 걸렸나?
+
+부모 테이블
+-cannot delete or update a parent row
+delete from member2 where id='asdf1234';
+-회원정보 아이디 asdf1234 삭제 못한다.
+-이게 삭제 되면 주문정보에 asdf1234는 의미가 없다.
+-회원정보에 없는 데이터를 쓴다는게 되니까...
+
+update member2 set id='ffff1234' where name='이민호';
+
+-자신을 참조하는 외래키가 있다면 기본키는 함부로 삭제되거나 수정될 수 없다.
+-자기를 바라보는 자식들이 있는데, 부모가 자식을 버리면 되냐?
+
+자식 테이블
+-cannot add or update a child row
+
+insert into order_info values('ffff1234','GG-1234','라면',1);
+-오류
+update order_info set order_id='ffff1234' where id='AA-1234';
+-오류
+
+insert into order_info
+values('asdf1234','EE-1235','감귤',123);
+-가능
+
+-기본키, 외래키 테이블 설정하고
+-기본키, 외래키 때문에 생기는 제약을 확인한다.
+
+-회원정보, 영화티켓 한번 더 연습
+create table member3(
+ id bigint primary key,
+ name varchar(20)
+);
+
+create table movie_ticket(
+ id bigint primary key,
+ member_id bigint,
+ foreign key(member_id) references member3(id),
+ movie_name varchar(20)
+);
+
+show columns in member3;
+show columns in movie_ticket;
+
+insert into member3 values(1,'회원1');
+insert into member3 values(2,'회원2');
+insert into member3 values(3,'회원3');
+insert into member3 values(4,'회원4');
+insert into member3 values(5,'회원5');
+
+insert into movie_ticket values(1,1,'태극기 휘날리며');
+insert into movie_ticket values(2,2,'바람과 함께 사라지다');
+insert into movie_ticket values(3,3,'인셉션');
+insert into movie_ticket values(4,4,'인터스텔라');
+insert into movie_ticket values(5,5,'길복순');
+
+select * from member3;
+select * from movie_ticket;
+
+delete from member3 where name='회원1';
+update member3 set id=6 where name='회원1';
+
+insert into movie_ticket values(6,6,'길복순');
+update movie_ticket set member_id=6 where id=1;
+-스스로 설명 가능 해야함.
+영화티켓 테이블에 회원id를 외래키로 지정 하면 없는 회원 테이블에 존재하지 않는 회원 id로 등록, 수정이 불가능.
+영화티켓 테이블에 등록 되어있는 데이터가 있으면 해당 데이터의 회원id에 해당하는 회원테이블의 데이터를 수정,삭제 불가능
+-내일은 조인

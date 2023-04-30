@@ -1,0 +1,11 @@
+-파이썬, C-자료구조
+-Java
+-DBMS
+-Java+DBMS(프로그램과 DBMS연계 이해) - (순수백엔드)
+-HTML + CSS, Javascript, Jquery
+-JSP(JSP문법만)
+-JSP+DBMS(UI들어간 웹프로그램+DBMS)
+-Spring(Spring문법만)
+-Spring+DBMS
+-Spring legacy, spring boot, 전자정부 프레임워크
+-정보처리기사, git, 리눅스

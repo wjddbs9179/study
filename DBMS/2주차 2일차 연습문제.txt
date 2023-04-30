@@ -1,0 +1,53 @@
+create database enrolment_db;
+
+use enrolment_db;
+
+create table student(
+ id int primary key,
+ name varchar(10)
+);
+
+create table subject(
+ id varchar(10) primary key,
+ name varchar(20)
+);
+
+create table enrolment(
+ student_id int,
+ foreign key(student_id) references student(id),
+ subject_id varchar(10),
+ foreign key(subject_id) references subject(id),
+ grade varchar(5),
+ constraint primary key(student_id, subject_id)
+);
+
+show columns in student;
+show columns in subject;
+show columns in enrolment;
+
+insert into student values(11002,'이홍근');
+insert into student values(24036,'김순미');
+
+insert into subject values('CS310','데이터베이스');
+insert into subject values('CS313','운영체제');
+insert into subject values('CS345','자료구조');
+
+insert into enrolment values(11002,'CS310','A0');
+insert into enrolment values(11002,'CS313','B+');
+insert into enrolment values(24036,'CS345','B0');
+insert into enrolment values(24036,'CS310','A+');
+
+select * from student;
+select * from enrolment;
+select * from subject;
+
+select 
+	enrolment.student_id, 
+	enrolment.subject_id, 
+	enrolment.grade, 
+	student.name, 
+	subject.name 
+from enrolment join student join subject 
+where 
+	subject.id=enrolment.subject_id 
+	and student.id = enrolment.student_id;

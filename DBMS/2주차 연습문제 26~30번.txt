@@ -1,0 +1,37 @@
+create database kcar_db;
+
+use kcar_db;
+
+create table kcar(
+ model varchar(20),
+ price int,
+ km int,
+ produce_date date,
+ enter_date date
+);
+
+insert into kcar values('아반떼',1300,35062,'2021-02-03','2022-02-21');
+insert into kcar values('소나타',1600,24535,'2021-03-13','2022-03-21');
+insert into kcar values('모닝',500,65042,'2021-04-22','2022-04-21');
+insert into kcar values('벤츠',3500,25513,'2021-05-11','2022-05-21');
+insert into kcar values('레이',1100,75301,'2021-06-21','2022-06-21');
+insert into kcar values('쉐보레',1400,45021,'2021-07-22','2022-07-21');
+insert into kcar values('코나',1500,25020,'2021-08-13','2022-08-21');
+insert into kcar values('렉스턴',1600,150324,'2022-09-20','2022-09-21');
+insert into kcar values('아우디',3600,18325,'2022-10-14','2022-10-21');
+
+26번. 차량 정보 모두 조회
+select * from kcar;
+
+27번. 소나타 정보 조회
+select * from kcar where model='소나타';
+
+28번. 가격이 1000~2000만원 사이 차량 조회
+select * from kcar where price between 1000 and 2000;
+
+29번. 키로수가 30000~40000사이인 차량 조회
+select * from kcar where km between 30000 and 40000;
+
+30번. 생산년도가 2022년 ~ 2023년도인 차량 조회
+select * from kcar where produce_date between '2022-01-01' and '2023-12-31';
+

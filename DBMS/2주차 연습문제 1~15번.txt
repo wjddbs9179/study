@@ -1,0 +1,53 @@
+데이터 베이스 생성
+create database book_db;
+데이터베이스 사용
+use book_db;
+테이블 생성
+book테이블
+create table book(
+ book_title varchar(20),
+ author varchar(10),
+ genre varchar(10),
+ price int
+);
+insert into book values('인문학1','김철수','인문학',10000);
+insert into book values('인문학2','이민호','인문학',13000);
+insert into book values('과학1','최성곤','과학',15000);
+insert into book values('과학2','박신정','과학',17000);
+insert into book values('철학1','장철민','철학',14000);
+insert into book values('철학2','강용준','철학',18000);
+insert into book values('심리학1','손만호','심리학',12000);
+insert into book values('심리학2','허태균','심리학',13000);
+insert into book values('자기계발1','최대용','자기계발',14000);
+insert into book values('자기계발2','박성호','자기계발',16000);
+
+1번. 도서 정보의 모든 항목 조회
+select * from book;
+2.번 책 제목과 도서가격만 조회
+select book_title, price from book;
+3번. 장르가 인문학, 과학책만 조회하기
+select * from book where genre='인문학' or genre='과학';
+4번. 장르가 철학, 심리학 책만 조회하기
+select * from book where genre='철학' or genre='심리학';
+5번. 저자가 허태균인 책만 조회하기
+select * from book where author='허태균';
+6번. 책 가격이 10000~15000사이 책만 조회하기
+select * from book where price between 10000 and 15000;
+7번. 장르가 인문학 책이면서 10000~15000사이 책만 조회하기
+select * from book where genre='인문학' and price between 10000 and 15000;
+8번. 장르가 인문학 책 또는 10000~15000사이 책만 조회하기
+select * from book where genre='인문학' or price between 10000 and 15000;
+9번. 장르가 철학 책이면서 10000~15000사이 책만 조회하기
+select * from book where genre='철학' and price between 10000 and 15000;
+10번. 장르가 철학 책 또는 10000~15000사이 책만 조회하기
+select * from book where genre='철학' or price between 10000 and 15000;
+11번. 가격 오름차순 정렬하기
+select * from book order by price asc;
+12번. 가격 내림차순 정렬하기
+select * from book order by price desc;
+13번 책 저자가 허태균인 책 삭제
+delete from book where author='허태균';
+14번 책 저자가 손만호인 책 가격 11000으로 변경
+update book set price=11000 where author='손만호';
+15번. 책 저자가 박성호인 책 가격 17000원으로 변경
+update book set price=17000 where author='박성호';

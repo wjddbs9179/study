@@ -1,0 +1,21 @@
+연습문제
+
+create table LotteCinemaMember(
+ id varchar(15) primary key,
+ password varchar(15),
+ name varchar(15),
+ address varchar(40),
+ phoneNum varchar(20),
+ signDate date
+);
+
+create table LCTicketReserved(
+ movieTitle varchar(20),
+ movieTime datetime,
+ reservedID varchar(15),
+ foreign key (reservedID) references LotteCinemaMember(id),
+ name varchar(10)
+);
+
+show columns in LotteCinemaMember;
+show columns in LCTicketReserved;

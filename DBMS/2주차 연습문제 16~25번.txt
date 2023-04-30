@@ -1,0 +1,47 @@
+의약품
+
+약물정보 데이터베이스 생성
+create database drug_db;
+
+데이터베이스 사용
+use drug_db;
+
+테이블 생성
+create table drug(
+ drug_name varchar(20),
+ dependency int,
+ withdrawal int,
+ tolerance int,
+ enhanced int,
+ toxicity int
+);
+
+16. 약물정보 모두조회
+select * from drug;
+
+17. 약물정보의 독성만 조회
+select toxicity from drug;
+
+18. 약물정보의 의존성만 조회
+select dependency from drug;
+
+19. 니코틴의 약물정보 조회
+select * from drug where drug_name='니코틴';
+
+20. 알코올의 약물정보 조회
+select * from drug where drug_name='알코올';
+
+21. 대마초의 약물정보 조회
+select * from drug where drug_name='대마초';
+
+22. 의존성이 제일 높은 순서부터 조회
+select * from drug order by dependency desc;
+
+23. 의존성이 제일 낮은 순서부터 조회
+select * from drug order by dependency asc;
+
+24.독성이 제일 높은 순서부터 조회
+select * from drug order by toxicity desc;
+
+25. 독성이 제일 낮은 순서부터 조회
+select * from drug order by toxicity asc;

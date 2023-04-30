@@ -1,0 +1,279 @@
+- CRUD
+
+- 제약조건 : PK, FK, UNIQUE, CHECK, NOT NULL, DEFAULT
+- 조인
+- LIKE, LIMIT, Auto_increment
+
+- DBMS에서 단독
+- Java + DBMS
+- JSP + DBMS
+- Spring + DBMS
+- Spring : 공공, 사설
+- 공공은 100% Spring
+-----------------------------------------------------------------------------------------
+UNIQUE
+-중복방지
+-널값은 허용
+
+use practice;
+
+create table uni_table(
+ id varchar(20) UNIQUE,
+ name varchar(20)
+);
+
+show columns in uni_table;
+
+insert into uni_table
+values('CE2009038018','김철수');
+
+insert into uni_table
+values('CE2009038018','옥희종');
+-id가 중복방지 UNIQUE 컬럼이기 때문에 오류
+
+insert into uni_table
+values(NULL,'옥희종');
+-----------------------------------------------------------------------------------------
+default - 기본값 설정
+
+create table default_test(
+ id int,
+ item varchar(20),
+ amount int default 1
+);
+
+insert into default_test
+values(111,'포도',7);
+
+insert into default_test
+values(222,'사과',7);
+
+insert into default_test(id, item)
+values(333,'오렌지');
+-amount(수량)을 따로 설정하지 않으면 디폴드 값 1
+
+select * from default_test;
+-----------------------------------------------------------------------------------------
+그룹
+양 과 질
+프로그램 많이 짜라 - 양
+-> 막 짜다보니까 뭐가 문제인지 알겠고, 개선
+
+프로그램을 제대로 하나만 짜라 - 질 - 이론
+-> 이게 질도 안좋아진다.
+-----------------------------------------------------------------------------------------
+양질 전환의 법칙
+-양을 눌리면 질도 좋아진다.
+-
+-----------------------------------------------------------------------------------------
+create table default_test2(
+ id varchar(10),
+ book_title varchar(20),
+ store_place varchar(20) default '대구중앙도서관'
+);
+
+show columns in default_test2;
+
+insert into default_test2
+values('가-123','어쩌다 한국인','두류도서관');
+
+insert into default_test2
+values('나-123','코스모스','2.28도서관');
+
+insert into default_test2
+values('다-123','분석 심리학');
+- 오류 : 입력한 컬럼 갯수와 테이블이 가지고 있는 컬럼 갯수가 안맞기 때문에 발생 아래와 같이 수정해야 됨.
+insert into default_test2(id,book_title)
+values('다-123','분석 심리학');
+
+select * from default_test2;
+-----------------------------------------------------------------------------------------
+check 제약조건
+create table check_table(
+ item varchar(10),
+ amount int check(amount>=1 and amount<=10)
+);
+
+-amount에 check제약조건 설정
+-수량이 1이상 10이하만 가능
+
+insert into check_table
+values('꼬부기의 소보루',5);
+
+insert into check_table
+values('로켓단의 롤케이크',20);
+
+-check constraint 'check_table_chk_1' is violated
+-체크 제약조건 check_table_chk_1을 위반했다.
+
+select * from check_table;
+
+select * from information_schema.table_constraints
+where table_name='check_table';
+-----------------------------------------------------------------------------------------
+create table check_table2(
+ name varchar(10),
+ gender varchar(1) check (gender in('M','F'))
+);
+-in : ~안에 있나? , or과 역할이 같다. 또는...
+
+insert into check_table2 values('박민석','M');
+insert into check_table2 values('이지은','F');
+insert into check_table2 values('유재석','K');
+-오류 : K는 못넣는다. check 제약조건에 해당하지 않음.
+-check constraint 'check_table_chk_1' is violated
+-체크 제약조건 'check_table2_chk_1'이 위반 되었다.
+
+select * from check_table2;
+-----------------------------------------------------------------------------------------
+create table check_table3(
+ name varchar(10),
+ birth_date date,
+ constraint bd_check CHECK(birth_date between '1990-04-01' AND '2010-12-31')
+);
+
+insert into check_table3 values('박민석','1995-05-01');
+
+insert into check_table3 values('이지은','1994-07-23');
+
+insert into check_table3 values('유재석','1978-02-21');
+-오류
+-check constraint 'bc_check' is violated
+-체크 제약조건 'bd_check'를 위반했다.
+-bd_check제약조건 이름은 내가 지은거다.
+
+select * from check_table3;
+
+select * from information_schema.table_constraints
+where table_name='check_table3';
+-----------------------------------------------------------------------------------------
+조인
+-조인은 여러개의 테이블을 합쳐서 출력
+-한 테이블에 컬럼 30개씩....
+-회원정보, 계약정보, .....
+-----------------------------------------------------------------------------------------
+점유율~
+student테이블, patient테이블 만들고 데이터 넣고
+조인으로 합쳐서 결과를 본다.
+-왼쪽조인, 오른쪽조인, 내부조인
+
+create table student(
+ name varchar(10),
+ age int,
+ height double
+);
+
+insert into student(name, age, height)
+values('박호범',20,175.3);
+
+insert into student(name, age, height)
+values('송중기',21,178.3);
+
+insert into student(name, age, height)
+values('정채연',21,164.2);
+
+select * from student;
+-----------------------------------------------------------------------------------------
+create table patient(
+ name varchar(10),
+ age int,
+ address varchar(50)
+);
+
+insert into patient values('박호범',20,'대구광역시 감삼동');
+
+insert into patient values('송중기',21,'서울특별시 동작구');
+
+insert into patient values('이강인',18,'대전광역시 둔산동');
+
+insert into patient values('박지성',25,'전라남도 고흥군');
+
+select * from patient;
+-----------------------------------------------------------------------------------------
+왼쪽조인
+select * from student left outer join patient
+on student.name=patient.name;
+
+select * from student left outer join 오른쪽 테이블
+ patient on student.name=patient.name;
+-name컬럼 기준으로 왼쪽 조인(왼쪽 외부조인)
+
+select student.name, student.age , patient.address from student left outer join patient
+on student.name=patient.name;
+-----------------------------------------------------------------------------------------
+-오른쪽 조인(오른쪽 외부조인)
+select student.name, student.age, patient.address 
+from student right outer join patient
+on student.name=patient.name;
+-----------------------------------------------------------------------------------------
+- DBMS - 1
+- Java - 1
+- Java+DBMS - 2
+- HTML+CSS+JS+Jqeury
+- JSP
+- JSP+DBMS
+- Spring
+- Spring+DBMS
+-----------------------------------------------------------------------------------------
+이너조인
+-이너조인 or where조건절로 이너조인 효과 똑같이
+select ~~~~~~~~~~~~~~~~~~~~~~ from student, patient
+where student.name = patient.name;
+
+select student.name, student.age, patient.address from student, patient
+where student.name = patient.name;
+-where 조건절로 이너조인 효과 똑같이
+
+select student.name, student.age, patient.address
+from student inner join patient
+where student.name = patient.name;
+-이너조인
+-----------------------------------------------------------------------------------------
+연습문제 4-1
+EMP 테이블(기준 테이블)
+create table employee(
+ empno int,
+ ename varchar(10),
+ job varchar(20),
+ deptno int
+);
+
+create table department(
+ deptno int,
+ dname varchar(20),
+ loc varchar(20)
+);
+
+insert into employee values(7839,'KING','PRESIDENT',90);
+insert into employee values(7566,'JONES','MANAGER',20);
+insert into employee values(7788,'SCOTT','ANALYST',10);
+insert into employee values(7654,'MARTIN','SALESMAN',30);
+insert into employee(empno,ename,job) values(7900,'JAMES','CLERK');
+
+insert into department values(10,'ACCOUNTING','NEW YORK');
+insert into department values(20,'RESEARCH','DALLAS');
+insert into department values(30,'SALES','CHICAGO');
+insert into department values(40,'OPERATIONS','BOSTON');
+
+사원테이블, 부서테이블 조인
+-left 조인
+select e.empno, e.ename, e.job, d.dname, d.loc 
+from employee e left join department d 
+on e.deptno=d.deptno;
+
+-right조인
+select e.empno, e.ename, e.job, d.dname, d.loc 
+from employee e right join department d 
+on e.deptno=d.deptno;
+
+-inner조인
+select e.empno, e.ename, e.job, d.dname, d.loc 
+from employee e inner join department d 
+where e.deptno=d.deptno;
+
+-where절 이용 해서 inner조인과 같은 효과
+select e.empno, e.ename, e.job, d.dname, d.loc
+from employee e, department d
+where e.deptno=d.deptno;
+
+사원번호 기준으로 조인

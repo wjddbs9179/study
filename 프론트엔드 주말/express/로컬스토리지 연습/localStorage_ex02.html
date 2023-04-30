@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // window.localStorage.setItem("myjson",{name:'kim',age:20});
+        window.localStorage.setItem("myjson",JSON.stringify({name:'kim',age:20}));
+        //JSON.stringify 는 JSON을 string으로 변환하는 메서드
+        //JSON.parse 는 string을 JSON으로 변환하는 메서드
+        let result = window.localStorage.getItem("myjson");
+        //myjson key에 해당하는 value값 반환
+        console.log(result);//string
+        console.log(result.name);
+        let jsonResult = JSON.parse(result);
+        console.log(jsonResult);
+        console.log(jsonResult.name);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

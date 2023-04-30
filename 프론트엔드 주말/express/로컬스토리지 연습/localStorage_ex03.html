@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let personList = [
+            {name:"kim", age:20, height:176.6},
+            {name:"lee", age:21, height:162.4},
+            {name:"park", age:22, height:178.2}
+        ]
+        window.localStorage.setItem("personList",JSON.stringify(personList));
+        const result = window.localStorage.getItem("personList");
+        console.log(result);//string
+        // console.log(result[i].name)//undefined
+        const jsonResult = JSON.parse(result);
+        console.log(jsonResult);
+        console.log(jsonResult[0].name); //kim
+        console.log(jsonResult[1].name); //lee
+        console.log(jsonResult[2].name); //park
+        window.localStorage.removeItem("personList"); //key가 personList인 데이터 삭제
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

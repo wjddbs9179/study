@@ -1,0 +1,45 @@
+쿼리스트링 쓰게되면
+
+넘기는 인자정보가
+가변적이라
+가격 정보가 있을수도 없을수도
+제조사 정보가 있을수도 없을수도 있어서
+키가 있는지 검사하고
+가격 정보가 있으면 쓴다.
+가격 정보가 없으면 안쓴다.
+이런식으로 개선이 되어야함
+제조사 정보 넘기지도 않았는데
+req.query.provider
+이런식으로 쓰면 오류남
+
+차량 샘플데이터로 검색구현
+
+hasOwnproperty메서드로
+JSON의 key존재 여부 확인
+
+http://localhost:4000/search?rank=스페셜
+- 이땐 false
+
+http://localhost:4000/search?color=쥐색
+- 이땐 true
+
+병원정보시스템
+학생관리프로그램
+-중학교, 고등학교, 대학교
+대학교
+-수강정보
+
+React개발자
+Node개발자
+-express-백엔드
+-socket.io-백엔드
+-next.js
+React-Express-MySQL
+
+Java
+MySQL
+Java+MySQL
+HTML+CSS,JS,JQUERY
+JSP+MySQL
+Spring
+Spring+MyBatis

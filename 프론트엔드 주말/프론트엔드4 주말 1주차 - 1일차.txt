@@ -1,5 +1,5 @@
 -프론트엔드4 주말 1주차 - 1일차
--클라우드 주소 : http://naver.me/GTSit4jw
+-클라우드 주소 : http://naver.me/GTSit4jW
 -암호 : 0107
 -까페주소 : http://cafe.naver.com/phbprogramming
 

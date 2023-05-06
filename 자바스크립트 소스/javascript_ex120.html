@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //길이가 3인 JSON배열에 영화정보 넣고 반복문으로 출력 제목 감독 평점
+
+        var movieList = [
+            {title:'드림',director:'이병헌',grade:8.8},
+            {title:'존 윅4',director:'채드 스타 헬스키',grade:9.1},
+            {title:'옥수역귀신',director:'정용기',grade:7.4}
+        ]
+
+        for(var i = 0; i <movieList.length;i++){
+            document.write(`${i+1}번째 영화 정보 출력`);
+            document.write(`제목 : ${movieList[i].title}<br>`);
+            document.write(`감독 : ${movieList[i].director}<br>`);
+            document.write(`평점 : ${movieList[i].grade}<br><br>`);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

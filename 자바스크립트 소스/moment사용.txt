@@ -1,0 +1,5 @@
+구글에 moment.js 검색 후
+moment.js 파일 클릭 후
+주소창에 컨트롤+S눌러서 우리프로젝트 js 폴더에 파일 저장후
+script태그로 연결 후 사용
+(Date객체 직접 안써도 moment.js가 다 해줌...)

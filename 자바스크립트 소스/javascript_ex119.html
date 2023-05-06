@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //JSON배열
+        //배열인데 원소가 객체, JSON이다.
+        var personList = [
+            {name:'kim',age:20,height:176.6},
+            {name:'lee',age:21,height:162.4},
+            {name:'park',age:22,height:177.1}
+        ]
+        // var personList = [X,Y,Z]
+        console.log(personList);
+        for(var i=0;i<personList.length;i++){
+            document.write(`${i+1}번째 사람 정보 출력<br>`);
+            document.write(`이름 : ${personList[i].name}<br>`);
+            document.write(`나이 : ${personList[i].age}<br>`);
+            document.write(`키 : ${personList[i].height}<br><br>`);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

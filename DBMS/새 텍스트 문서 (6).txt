@@ -1,0 +1,210 @@
+-DBMS주말 - 3주차 - 1일
+-클라우드 주소 : http://naver.me/5VAtOLHx
+-암호 : 0422
+
+-저번시간 내용:
+-CRUD, PK, FK..., 조인
+
+-이번시간 내용
+-복습
+-워크벤치, Heidi SQL 사용
+-limt, like, auto_increment 등
+
+use enrolment_db;
+
+select student.id, subject.id, student.name, subject.name, enrolment.grade 
+from enrolment join student join subject 
+where enrolment.student_id = student.id and enrolment.subject_id = subject.id;
+
+자동증가 컬럼 추가
+alter table univ_student add column no int not null auto_increment primary key first;
+
+create table board(
+no int not null auto_increment primary key,
+title varchar(20),
+contents TEXT,
+password varchar(10),
+write_date DATE
+);
+
+insert into board(title, contents, password,
+write_date)
+values('my_title1','my_contents1','asdf1234','2020-05-21');
+
+insert into board(title, contents, password,
+write_date)
+values('my_title2','my_contents3','asdf1234','2020-06-21');
+
+insert into board(title, contents, password,
+write_date)
+values('my_title3','my_contents3','asdf1234','2020-07-21');
+
+select * from board;
+
+select * from board order by no desc;
+
+select * from board order by write_date desc;
+
+--------------------------------------------------------------------------------------
+auto_increment, like, limit, like+limit
+
+create table samyang_ramen(
+ name varchar(20),
+ produce_date date,
+ amount int(5)
+);
+
+alter table samyang_ramen add columns int not null auto_increment primary key first;
+
+insert into samyang_ramen (name, produce_date, amount) values ('불닭볶음면','2023-04-06',12345);
+
+insert into samyang_ramen (name, produce_date, amount) values ('삼양라면','2023-05-06',12345);
+
+insert into samyang_ramen (name, produce_date, amount) values ('간짬뽕','2023-06-06',12345);
+
+insert into samyang_ramen (name, produce_date, amount) values('핵불닭볶음면',now(),6500);
+
+insert into samyang_ramen (name, produce_date, amount) values('까르보불닭',now(),900);
+
+select * from samyang_ramen;
+
+select * from samyang_ramen where name like '%불닭%';
+
+select * from samyang_ramen where name like '%불닭';
+
+select * from samyang_ramen where name like '%불닭%';
+
+select * from samyang_ramen where name like '%볶음면';
+
+select * from samyang_ramen where name like '%짬뽕%';
+
+select * from samyang_ramen where name like '%라면';
+
+책검색
+과학이라는 글자가 들어가는 책
+재밌는 과학
+중3 과학 - 물리
+where book_title='과학';
+-조건절
+like book_title '%과학%';
+-검색
+like + 와일드카드 (%)
+
+create database LIMIT_PRACTICE;
+
+use LIMIT_PRACTICE;
+
+create table emp(
+ emp_no int primary key,
+ name varchar(10),
+ salary int
+);
+
+insert into emp(emp_no, name, salary)
+values (1, '이민호',3000);
+
+insert into emp(emp_no, name, salary)
+values (2, '정채연',3100);
+
+insert into emp(emp_no, name, salary)
+values (3, '송중기',3200);
+
+insert into emp(emp_no, name, salary)
+values (4, '박근혜',3300);
+
+insert into emp(emp_no, name, salary)
+values (5, '문재인',3400);
+
+insert into emp(emp_no, name, salary)
+values (6, '윤석열',3500);
+
+insert into emp(emp_no, name, salary)
+values (7, '이재명',3600);
+
+insert into emp(emp_no, name, salary)
+values (8, '홍준표',3700);
+
+select * from emp;
+
+select * from emp limit 0,1;
+-0번째 인덱스 부터 1개
+
+select * from emp limit 0,2;
+-0번째 인덱스 부터 2개
+
+select * from emp limit 0,3;
+-0번째 인덱스 부터 3개
+
+select * from emp limit 1,3;
+-1번째 인덱스 부터 3개
+
+--------------------------------------------------------------------------------------
+like + limit
+
+검색 결과 중에서 ~ 몇개만 출력
+
+1페이지 - 처음 10개
+2페이지 - 그 다음 10개
+이런식으로 게시판 쇼핑몰에서
+검색 결과 중에
+ 1페이지 데이터, 2 페이지 데이터
+사용하기 위해 사용함.
+
+프론트엔드 - 백엔드 - DBMS
+프론트엔드 : HTML+CSS, JavaScript,Jquery
+UI클릭, 값 읽어내고, 백엔드로 보내서
+
+백엔드:Java
+함수에 DBMS랑 연결되어있음
+
+DBMS
+--------------------------------------------------------------------------------------
+MySQL Command Line Client -CLI
+MySQL Workbench - GUI
+Heidi SQL - GUI
+
+MySQL Command Line Client는
+명령어로만 하는 CLI 방식
+
+MySQL Workbench는 그래픽이 들어가고
+클릭이 되는 GUI방식
+
+Heidi SQL도 GUI방식
+Workbench에 비해 좀 간결함
+
+Workbench도 한번 써보고...
+Heidi SQL설치하고, 접속해서 사용
+
+create database LIMIT_LIKE_PRACTICE;
+
+use LIMIT_LIKE_PRACTICE;
+
+create table product(
+title varchar(20),
+provider varchar(20),
+price int
+);
+
+insert into product(title, provider, price) values('포도 주스','델몬트',3000);
+insert into product(title, provider, price) values('코코팜 포도','해태',1200);
+insert into product(title, provider, price) values('포도 알맹이','오리온',1000);
+insert into product(title, provider, price) values('웰치스 포도맛','농심',1300);
+insert into product(title, provider, price) values('해태 폴라포 포도','해태',600);
+insert into product(title, provider, price) values('신라면','농심',900);
+insert into product(title, provider, price) values('진라면','오뚜기',650);
+insert into product(title, provider, price) values('열라면','오뚜기',850);
+insert into product(title, provider, price) values('참깨라면','농심',850);
+insert into product(title, provider, price) values('틈새라면','팔도',950);
+
+select * from product;
+
+select * from product where title like '%포도%';
+
+select * from product where title like '%포도%' LIMIT 0,3;
+-포도로 검색 시 1페이지에 출력될 내용
+select * from product where title like '%포도%' LIMIT 3,3;
+-포도로 검색 시 2페이지에 출력될 내용
+
+select * from product where title like '%라면%';
+
+mockaroo 샘플 데이터 제공 사이트

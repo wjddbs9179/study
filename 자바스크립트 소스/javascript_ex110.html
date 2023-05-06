@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/moment.js"></script>
+    <script>
+        function time(){
+            var date = moment();
+            console.log(date.format('YYYY-MM-DD hh:mm:ss'));
+            console.log(date.format('YY-MMM-DD'));
+        }
+
+        setInterval(time,1000);
+        //MMM - Jan - Feb - Mar - Apr - May - Jun - Jul - Aug ...
+        //Date객체 직접 만들어서 년월일 시분초 뽑는다?
+        //탕수육소스, 치킨 양념 직접 만든다...
+        //치킨양념 : 케챱, 고추장, 설탕, 물엿, ... 섞고 끓이고
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

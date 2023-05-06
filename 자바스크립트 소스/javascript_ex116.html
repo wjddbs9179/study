@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var audio = new Audio();//Audio객체 생성
+        var audioList = ['./audio/audioTest1.mp3','./audio/audioTest2.mp3','./audio/audioTest3.mp3']
+        var audioNum = 0;
+        audio.src=audioList[audioNum];
+        var play = false;
+        function playOrPauseMusic(){
+            if(!play){
+                audio.play();//재생
+                play=true;
+            }else{
+                audio.pause();
+                play=false;
+            }
+        }
+        function stopMusic(){
+            audio.pause();//일시중지
+            audio.currentTime=0;//현재재생시간 0
+            play=false;
+        }
+        function prevMusic(){
+            //지금 재생중인거 끄고
+            //음악 파일 변경, 다시 재생
+            //0 2 1 0 2 1
+            audio.pause();
+            audio.currentTime=0;
+            if(audioNum===0){
+                audioNum=audioList.length-1;
+                audio.src=audioList[audioNum];
+            }else{
+                audio.src=audioList[--audioNum];
+            }
+            audio.play();
+            play=true;
+        }
+        function nextMusic(){
+            //0 1 2 0 1 2
+            audio.pause();
+            audio.currentTime=0
+            if(audioNum+1>=audioList.length){
+                audioNum=0;
+                audio.src=audioList[audioNum];
+            }else{
+                audio.src=audioList[++audioNum];
+            }
+            audio.play();
+            play=true;
+        }
+    </script>
+</head>
+<body>
+    <button type="button" onclick="prevMusic()">이전</button>
+    <button type="button" onclick="playOrPauseMusic()">재생/중지</button>
+    <button type="button" onclick="stopMusic()">끄기</button>
+    <button type="button" onclick="nextMusic()">다음</button>
+</body>
+</html>

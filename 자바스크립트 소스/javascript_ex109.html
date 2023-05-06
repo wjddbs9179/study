@@ -6,7 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-    
+        function time(){
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth()+1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+            var format = `${year}-${month}-${day} ${hour}:${min}:${sec}`;
+            console.log(format);
+        }
+
+        setInterval(time,1000);
     </script>
 </head>
 <body>

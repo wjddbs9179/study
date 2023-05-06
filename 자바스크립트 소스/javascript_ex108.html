@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-    
+        function rcs(choice){
+            alert(choice)//가위, 바위, 보
+            //컴퓨터는 랜덤값으로~
+            //Math.ceil(Math.random()*3) : 1~3
+        }
     </script>
 </head>
 <body>
-    
+    <button onclick="rcs('가위')">가위</button>
+    <button onclick="rcs('바위')">바위</button>
+    <button onclick="rcs('보')">보</button>
 </body>
 </html>

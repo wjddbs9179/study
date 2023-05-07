@@ -1,0 +1,17 @@
+DBMS 주말 3주차 - 2일
+-클라우드 주소 : http://naver.me/5VAtOLHx
+-암호 : 0422
+
+-저번시간 내용 :
+-auto_increment, limit, like, like+limit
+
+-이번시간 내용 : 
+-복습, 서브쿼리, 내장함수 응용, group by, having, DB구축
+
+select * from board limit 0,10;
+0~9
+
+select * from board limit 10,10;
+10~19
+
+select * from board where title like '%도서관%' limit 0, 10;

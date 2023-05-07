@@ -1,0 +1,24 @@
+SELECT type, COUNT(name) AS cnt FROM hero_collection GROUP BY type;
+
+create database group_by_practice;
+
+use group_by_practice;
+
+create table my_company(
+id int,
+type int,
+name varchar(10)
+);
+
+insert into my_company(id,type,name) values(1001,1,'김철수');
+insert into my_company(id,type,name) values(1001,1,'이민호');
+insert into my_company(id,type,name) values(1001,1,'홍길동');
+insert into my_company(id,type,name) values(1001,2,'이동준');
+insert into my_company(id,type,name) values(1001,2,'옥희종');
+
+select * from my_company;
+
+SELECT type, COUNT(name) FROM my_company GROUP BY type;
+SELECT type, COUNT(name) AS cnt FROM my_company GROUP BY type;
+
+

@@ -1,0 +1,33 @@
+1반 영어성적 평균
+
+2반 영어성적 평균
+
+3반 영어성적 평균
+
+create database group_by_practice;
+
+use group_by_practice;
+
+create table english_score_info(
+class int,
+name varchar(10),
+english_score int
+);
+
+insert into english_score_info(class, name, english_score) values(1,'이민호',95.7);
+insert into english_score_info(class, name, english_score) values(1,'최성국',87.5);
+insert into english_score_info(class, name, english_score) values(1,'김예나',88.2);
+
+insert into english_score_info(class, name, english_score) values(2,'신재욱',85.6);
+insert into english_score_info(class, name, english_score) values(2,'강성우',89.4);
+insert into english_score_info(class, name, english_score) values(2,'장명진',78.2);
+
+insert into english_score_info(class, name, english_score) values(3,'박찬혁',97.7);
+insert into english_score_info(class, name, english_score) values(3,'정만식',76.5);
+insert into english_score_info(class, name, english_score) values(3,'구도형',82.1);
+
+select * from english_score_info;
+
+SELECT class, AVG(english_score) FROM english_score_info GROUP BY class;
+
+SELECT class, AVG(english_score) FROM english_score_info GROUP BY class having AVG(english_score) >= 85;

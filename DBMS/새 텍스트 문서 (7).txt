@@ -15,3 +15,303 @@ select * from board limit 10,10;
 10~19
 
 select * from board where title like '%도서관%' limit 0, 10;
+
+-로그인 실패! 정보가 없습니다.
+
+-아이디가 없습니다.
+-비밀번호가 틀렸다.
+
+-----------------------------------------------------------------------------------------
+내장함수 응용
+
+select * from item where id like '4%';
+-상품 아이디가 4~로 시작하는
+
+select sum(amount) from item;
+-item 생산량 합계
+
+select min(amount) from item;
+-amount 최소값인 데이터
+-min - minimum
+
+select max(amount) from item);
+-amount 최대값인 데이터
+-max - maximum
+
+set @min_price = min(price);
+-오류
+
+set @min_price = select min(price) from item;
+
+set @min_price = (select min(price) from item);
+-잘됨
+-item중에 가격 최소값 가져와서 min_price변수에 저장
+
+select @min_price;
+-min_price 변수 조회'
+
+select name from item where price=@min_price;
+-가격이 제일 낮은 상품의 이름
+
+select name, price from item where price=@min_price;
+-가격이 제일 낮은 상품의 이름, 가격
+-----------------------------------------------------------------------------------------
+set @max_price = (select max(price) from item);
+-item 중에 최대가격 max_price변수에 저장
+
+select @max_price;
+-max_price변수 조회
+
+select name from item where price = @max_price;
+-가격이 제일 비싼 상품의 이름
+
+select name, price from item where price=@max_price;
+-가격이 제일 비싼 상품의 이름, 가격
+
+-----------------------------------------------------------------------------------------
+
+select avg(price) from item;
+-avg - average - 평균
+-item 가격 평균 조회
+
+select avg(price) from item where id like '3%';
+-3~ 번대 item 가격 평균 조회
+
+select name, price, amount, price * amount  
+from item where name = '화이트 하임';
+-화이트하임의 이름, 가격, 가격*수량 출력
+
+select name, price, amount, price * amount as total_price 
+from item where name = '화이트 하임';
+-as로 별칭 지어서~ 출력
+
+select * from item where produce_date
+between '2020-07-20' and '2020-09-20';
+-생산날짜가 2020-07-20 ~ 2020-09-20인 아이템 조회
+
+select name, produce_date from item where 
+datediff(now(), produce_date) >=180;
+-생산날짜가 현재와 180일 이상 차이나는 아이템 출력
+-6개월 이상~된
+now는 현재, produce_date는 생산날짜
+now - produce_date가 180일 이상인 것
+
+now 		produce_date
+2020-09-20	2020-07-20 - 60~61일 차이
+2020-09-20	2020-06-20 - 90~91일 차이
+...
+2020-09-20	2020-03-20 - 179~181일 차이
+
+select name, produce_date, datediff(now(), produce_date) from item;
+-datediff 날짜차이
+-datediff(입력값1, 입력값2)
+-입력값1 - 입력값2의 차이 값
+-datediff('2023-05-07','2020-07-20')
+->1021
+->오늘 날짜부터 몇일 차이인가? - 대략 3년인데...
+->1021일 이전이다.
+
+select name, produce_date, datediff(now(), produce_date) 
+from item where datediff(now(),produce_date)>=900;
+
+select name, produce_date, datediff(now(), produce_date) 
+from item where datediff(now(),produce_date)>=1000;
+
+-----------------------------------------------------------------------------------------
+응용
+현재날짜 기준으로 입원 몇일째인가?
+현재날짜 기준으로 입고 몇일째인가?
+현재날짜 기준으로 생산 몇일째인가?
+.....
+
+
+-----------------------------------------------------------------------------------------
+부서 그룹화 하여 명수 세기
+-컬럼 : 사원번호, 이름, 부서
+-영업, 기획, 개발
+-영업 2명, 기획 3명, 개발 4명 넣고 Group By 써서
+부서별로 그룹화 하여 COUNT하기
+
+create table company(
+ eno bigint,
+ name varchar(20),
+ dept varchar(20)
+);
+
+insert into company values(1,'홍길동','영업');
+insert into company values(2,'남궁성','영업');
+insert into company values(3,'신성민','기획');
+insert into company values(4,'김재동','기획');
+insert into company values(5,'이성재','기획');
+insert into company values(6,'이상길','개발');
+insert into company values(7,'최창민','개발');
+insert into company values(8,'김일성','개발');
+insert into company values(9,'남성민','개발');
+
+select dept '부서', count(*) '인원수' from company group by dept;
+-----------------------------------------------------------------------------------------
+생산라인 그룹화 하여 생산량 합계 출력하기
+-컬럼 : 품목번호 생산라인, 제품, 생산량
+-생산라인1, 생산라인2, 생산라인3
+-생산라인1 - 품목 3개, 생산라인2-품목4개, 생산라인3-품목5개
+-데이터는 어떤것을 넣어도 상관 없음.
+
+-생산라인1 - 라면 생산~
+-생산라인2 - 과자 생산~
+-생산라인3 - 음료수 생산~
+
+create table production_line(
+ no int,
+ line int,
+ product varchar(20),
+ output int
+);
+
+insert into production_line values(1,1,'삼양라면',250);
+insert into production_line values(2,1,'무파마',300);
+insert into production_line values(3,1,'김치면',300);
+insert into production_line values(4,2,'프링글스',270);
+insert into production_line values(5,2,'통밀스틱',240);
+insert into production_line values(6,2,'리얼그래놀라',260);
+insert into production_line values(7,2,'로투스',310);
+insert into production_line values(8,3,'칠성사이다',320);
+insert into production_line values(9,3,'코카콜라',340);
+insert into production_line values(10,3,'코코팜',270);
+insert into production_line values(11,3,'밀키스',250);
+insert into production_line values(12,3,'컨피던스',230);
+
+select line '생산라인', sum(output) '생산량 합계' 
+from production_line group by line;
+
+-----------------------------------------------------------------------------------------
+group by로
+반별로 묶어서 영어성적 평균 출력
+
+having - group by에 조건 주기
+
+group by class
+having avg(english_score) >= 85;
+
+round(avg(english_score),1)
+-영어성적 평균을 소수점 1째 자리까지 반올림해서 표현
+-2째 자리에서 반올림해서 1째자리 까지 표현
+
+select class, round(avg(english_score),1) as eng_avg
+from english_score_info group by class
+having avg(english_score) >= 85
+order by eng_avg asc;
+
+select class, round(avg(english_score),2) '평균'
+from english_score_info group by class having avg(english_score)>=85;
+-반별 영어성적 평균이 85점 이상인~
+-----------------------------------------------------------------------------------------
+create table product (
+ category varchar(10),
+ sub_category varchar(10),
+ product_name varchar(20),
+ quantity int,
+ price int
+);
+
+insert into product values('간식','과자','감자칩',100,1500);
+insert into product values('간식','과자','고구마칩',200,1500);
+insert into product values('간식','초콜릿','밀크초콜릿',500,2000);
+insert into product values('간식','초콜릿','다크초콜릿',700,2000);
+insert into product values('유제품','우유','우유 1L',150,2500);
+insert into product values('유제품','우유','저지방우유 1L',100,2500);
+insert into product values('유제품','치즈','체다치즈',50,4500);
+insert into product values('육류','소고기','안창살 1인분',50,10000);
+insert into product values('육류','소고기','항정살 1인분',50,10000);
+insert into product values('육류','돼지고기','삼겹살 1인분',200,8000);
+insert into product values('육류','돼지고기','목살 1인분',100,8000);
+insert into product values('육류','돼지고기','앞다리살 1인분',100,8000);
+
+select 
+ category '대분류', 
+ sum(quantity) '총 수량', 
+ round(avg(price),0) '평균 가격', 
+ max(price) '최고가'
+from product 
+group by category;
+
+select 
+ category '대분류', 
+ sum(quantity) '총 수량', 
+ round(avg(price),0) '평균 가격', 
+ max(price) '최고가'
+from product 
+group by category
+having avg(price)>3000;
+
+select 
+ category '대분류', 
+ sum(quantity) '총 수량', 
+ round(avg(price),0) '평균 가격', 
+ max(price) '최고가'
+from product 
+group by category
+having avg(price)>3000
+order by avg(price) desc;
+
+select 
+ category '대분류', 
+ sum(quantity) '총 수량', 
+ round(avg(price),0) '평균 가격', 
+ max(price) '최고가'
+from product 
+group by category
+having avg(price)>3000
+order by max(price) desc;
+-----------------------------------------------------------------------------------------
+DB구축
+회원관리 관련 DB
+서브쿼리
+-SQL문 안에 들어가는
+또다른 SQL문
+-예시 : 조건 걸어서 가져온 값으로 조건을 또 거는 형태
+
+select * from samyang_ramen where amount in 
+(select Amount from samyang_ramen where name='불닭볶음면');
+
+select * from DAEGU_CITIZEN where job in 
+(select job from DAEGU_CITIZEN where name='송중기');
+
+select * from DAEGU_CITIZEN where JOB IN(송중기의 직업);
+
+송중기의 직업과 일치하는 직업을 가진 모든 사람 출력
+
+
+-----------------------------------------------------------------------------------------
+create table member(
+ id varchar(20) primary key,
+ pw varchar(20),
+ name varchar(20),
+ address varchar(100),
+ phone varchar(13)
+);
+
+insert into member values('asdf1234','asdf1234','이민호','대구광역시 동구 효목동 12-34','010-1234-1234');
+insert into member values('qwer1234','qwer1234','정채연','대구광역시 서구 내당동 23-45','010-3456-3456');
+insert into member values('opqr1234','opqr1234','송중기','대구광역시 달서구 두류동 45-56','010-4567-4567');
+insert into member values('erty1234','erty1234','안유진','대구광역시 북구 북현동 78-87','010-5678-5678');
+insert into member values('gbnm1234','gbnm1234','윤석열','대구광역시 남구 대명동 87-56','010-6789-6789');
+
+select * from member;
+
+select pw from member where id='asdf1234';
+
+select pw from member where id='asdf4444';
+
+select count(*) from member where id='asdf1234' and pw='asdf1234';
+
+select count(*) from member where id='asdf1234' and pw='asdf4444';
+
+update member set pw='asdf1111' where id='asdf1234';
+update member set address='서울특별시 강남구' where id='asdf1234';
+select * from member;
+
+delete from member where id='asdf1234';
+select * from member;
+
+select count(id) from member where id='asdf1234';
+select count(id) from member where id='qwer1234';

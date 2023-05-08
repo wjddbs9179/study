@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var tripList = [
+            {country:'japan',price:500000},
+            {country:'china',price:550000},
+            {country:'thailand',price:600000}]
+        function myFunc(){
+            //getElementsByClassName - 여러개 원소 접근
+            //클래스 이름에 의해서 여러개 원소들을 가져온다.
+            var myChk = document.getElementsByClassName('my-chk');
+            var sumPrice = 0;
+            for(var i = 0 ; i < myChk.length ; i++){
+                if(myChk[i].checked){
+                    console.log(myChk[i].value);
+                    for(var j = 0 ; j < tripList.length ; j++){
+                        if(tripList[j].country===myChk[i].value){
+                            sumPrice+=tripList[i].price;
+                        }
+                    }
+                }
+            }
+            alert(`총 가격 : ${sumPrice}`);
+        }
+    </script>
+</head>
+<body>
+    <label for="">일본</label>
+    <input type="checkbox" class="my-chk" value="japan">
+    <label for="">중국</label>
+    <input type="checkbox" class="my-chk" value="china">
+    <label for="">대만</label>
+    <input type="checkbox" class="my-chk" value="thailand">
+    <button onclick="myFunc()">클릭</button>
+</body>
+</html>

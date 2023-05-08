@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #wrap{
+            width: 200px;
+            height: 400px;
+            background-color: aqua;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            margin: 10px;
+        }
+    </style>
+    <title>Document</title>
+    <script>
+        function myFunc(){
+           //querySelector - 단일요소
+           //querySelectorAll - 여러개 선택
+           document.querySelectorAll("#wrap>.box")[0].style.backgroundColor="red";
+           document.querySelectorAll("#wrap>.box")[1].style.backgroundColor="blue";
+           document.querySelectorAll("#wrap>.box")[2].style.backgroundColor="green";
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div class="box">
+            박스
+        </div>
+        <div class="box">
+            박스
+        </div>
+        <div class="box">
+            박스
+        </div>
+    </div>
+    <button onclick="myFunc()">클릭</button>
+</body>
+</html>

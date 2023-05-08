@@ -13,6 +13,7 @@ public class JpaMain {
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
+
         //code
         try {
             tx.commit();
@@ -23,5 +24,7 @@ public class JpaMain {
             em.close();
         }
         emf.close();
+
+
     }
 }

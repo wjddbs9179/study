@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+    </style>
+    <title>Document</title>
+    <script>
+        //DOM제어
+        //Document Object Model
+        //document 객체로 제어할 수 있게 만들어 놓은 모델
+        //document-html-...
+        //DOM Tree - 돔트리
+        //document객체 내장메서드 사용해서 화면 제어
+        function myFunc(){
+            // document.querySelector("#box").style.backgroundColor="red";
+            var box = document.querySelector("#box");
+            box.style.backgroundColor="red";
+            box.style.width="200px";
+            //document.querySelector("#box")-아이디 박스에 접근
+            //document객체 내장메서드 querySelector로~
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        박스
+    </div>
+    <button onclick="myFunc()">클릭</button>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myFunc(){
+            //getElementsByClassName - 여러개 원소 접근
+            //클래스 이름에 의해서 여러개 원소들을 가져온다.
+            var myChk = document.getElementsByClassName('my-chk');
+            for(var i = 0 ; i < myChk.length ; i++){
+                alert(myChk[i].checked);
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="checkbox" class="my-chk">
+    <input type="checkbox" class="my-chk">
+    <input type="checkbox" class="my-chk">
+    <button onclick="myFunc()">클릭</button>
+</body>
+</html>

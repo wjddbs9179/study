@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+    </style>
+    <title>Document</title>
+    <script>
+        var colorList = ['red','green','blue','aqua'];
+        var colorCount = 0;
+        function myFunc(){
+            var box = document.getElementById('box');
+            box.style.backgroundColor = colorList[colorCount++];
+            if(colorCount>=colorList.length){
+                colorCount=0;
+            }
+        }
+        //
+    </script>
+</head>
+<body>
+    <div id="box">
+        박스
+    </div>
+    <button onclick="myFunc()">클릭</button>
+</body>
+</html>

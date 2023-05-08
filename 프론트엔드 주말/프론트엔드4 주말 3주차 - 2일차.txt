@@ -6,3 +6,218 @@ MongoDB
 -이미 점거하는 포트~
 아이피 주소, 포트
 네트워크 기초
+
+show databases;
+-데이터베이스 목록조회
+
+create database node_practice;
+-node_practice 데이터베이스 생성
+
+use node_practice;
+-node_practice데이터베이스 사용
+
+create table preson(
+ name varchar(10),
+ age int,
+ height double
+);
+-person테이블 생성
+-name은 길이 10바이트 가변 문자열
+-varchar - variable character
+-age 는 정수
+-int - integer
+-height는 실수
+-double - 실수
+
+show tables;
+-현재 사용하는 데이터베이스에 있는 테이블들 조회
+-tables_in_node_practice
+-node_practice데이터베이스 안에 있는 테이블들
+-person
+
+drop table person;
+-테이블 삭제
+
+insert into person(name, age, height)
+values('이민호',20,176.6);
+
+insert into person(name, age, height)
+values('정채연',21,162.4);
+
+insert into person(name, age, height)
+values('송중기',22,177.1);
+
+select * from person;
+select name from person;
+select name, age from person;
+select name, age, height from person;
+select * from person where name = '이민호';
+-이민호인 데이터 조회
+
+select * from person where age = 21;
+-나이가 21살인 데이터
+
+select * from person where age >=21;
+-나이가 21살 이상인 데이터
+
+update person set age = 30 where name='이민호';
+-이민호 나이 30살로 변경
+
+delete from person where name='이민호';
+-이민호 삭제
+-이름이 이민호인 데이터 삭제
+
+-----------------------------------------------------------------------------------------
+SQL
+-Structured Query Language
+-구조화된 쿼리언어, 구조화된 질의 언어
+-SQL문
+-DB를 조작하는 언어
+어제는 CRUD관련 SQL문 했다.
+-----------------------------------------------------------------------------------------
+제약조건
+PK, FK
+PK
+-NOT NULL and Unique
+-널값을 허용하지 않고 중복방지(고유한 값)
+-주민번호, 아이디, 학번...
+-행정직원이 입력... 실수로 중복된 주민번호를 입력하고 등록 눌러도...
+-프론트엔드 -> 백엔드 -> DBMS
+-----------------------------------------------------------------------------------------
+create table univ_student(
+ id int primary key,
+ name varchar(10),
+ grade int,
+ major varchar(20)
+);
+-univ_student테이블 생성 (대학생 테이블)
+-학번, 이름, 학년, 전공
+
+show columns in univ_student;
+
+insert into 
+univ_student(id,name, grade, major)
+values(20230301, '이민호',1,'컴퓨터공학');
+
+insert into
+univ_student(id,name,grade,major)
+values(20230301,'정채연',1.'전자공학');
+-학번 이미 넣은거랑 중복되서 못넣는다.
+-오류 : duplicate entry
+duplicate : 복제, 사본
+
+insert into
+univ_student(id,name, grade,major)
+values(20230302,'정채연',1,'전자공학');
+
+-----------------------------------------------------------------------------------------
+member테이블 만들고
+id에 PK설정하고
+
+id,pw,name,address 설정
+데이터 넣고
+
+회원정보를 넣고
+똑같은 아이디를 또 넣으려고 하면 오류 나는거
+
+create table member (
+ id int primary key,
+ pw varchar(20),
+ name varchar(20),
+ address varchar(100)
+);
+
+insert into member values(1,'asdf1234','강감찬','대구광역시');
+
+insert into member values(1,'asdf1234','강감찬','대구광역시');
+-----------------------------------------------------------------------------------------
+car테이블 만들고 CRUD관련 SQL문 수행
+모델명, 가격, 연비
+-아반떼, 2300, 13.2
+-소나타, 2400, 11.2
+-투싼, 2600, 10.4
+문자열, 정수, 실수
+
+create table car (
+ model_name varchar(20),
+ price int,
+ fuel double
+);
+
+insert into car values('아반떼',2300,13.2);
+insert into car values('소나타',2400,11.2);
+insert into car values('투싼',2600,10.4);
+
+select * from car;
+
+select * from car where model_name='아반떼';
+
+select * from car where price>=2400;
+
+select * from car where fuel < 12.0;
+
+update car set price=3000 where model_name='소나타';
+
+update car set fuel=12.7 where model_name='아반떼';
+
+update car set model_name='투싼2' where model_name='투싼';
+
+select * from car;
+
+delete from car where model_name='투싼2';
+
+select * from car;
+
+-----------------------------------------------------------------------------------------
+FK
+Foreign key - 외래키
+-기본키(PK)를 쓰면 문제가 뭐냐면... 중복데이터를 못넣는다.
+쇼핑몰에서
+회원정보...ID에 PK설정... 중복방지되고 좋다.
+쇼핑몰이니까 상품주문... 회원정보 테이블에 주문아이템, 주문날짜 컬럼을
+넣으려고 하니까 못넣는다.
+
+회원정보 테이블에 주문정보까지 넣을 수가 없다.
+-----------------------------------------------------------------------------------------
+PK - FK
+회원정보 - 주문정보
+학생정보 - 캠프정보
+회원정보 - 티켓예매정보
+...
+
+
+create table univ_student
+
+create table univ_camp(
+ camp_title varchar(20),
+ camp_id int,
+ foreign key(camp_id) references univ_student(id),
+ name varchar(20)
+);
+
+show columns in univ_camp;
+NULL key
+yes MUL
+
+insert into univ_camp values('면접 스피치 캠프',20230301,'이민호');
+
+insert into univ_camp
+values('IT기초 역량 강화 캠프',20240707,'김철수');
+
+
+create table member(
+ id int primary key,
+ name varchar(10)
+);
+
+create table orders(
+ id int,
+ member_id int,
+ foreign key(member_id) references member(id),
+ item_name varchar(20),
+ quantity int
+);
+
+insert into member values(1,'최정윤');
+
+insert into orders values(1,1,'사과',15); 

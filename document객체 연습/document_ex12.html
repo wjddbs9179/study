@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myFunc(){
+            //getElemnetById - 단일요소 접근
+            var myId = document.getElementById("my-id");
+            var myPw = document.getElementById("my-pw");
+            alert(myId.value);
+            alert(myPw.value);
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="my-id" placeholder="아이디 입력"><br>
+    <input type="password" id="my-pw" placeholder="비밀번호 입력">
+    <button onclick="myFunc()">클릭</button>
+</body>
+</html>

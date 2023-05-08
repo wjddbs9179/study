@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myFunc(){
+            //getElemnetById - 단일요소 접근
+            var myInput = document.getElementById("my-input");
+            alert(myInput.value);
+            myInput.value='최부장'
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="my-input" value="김대리">
+    <button onclick="myFunc()">클릭</button>
+</body>
+</html>

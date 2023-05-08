@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var memberList = [{id:"asdf1234",pw:"asdf1234"},{id:"qwer1234",pw:"qwer1234"},{id:"zxcv1234",pw:"zxcv1234"}]
+        function myFunc(){
+            //getElemnetById - 단일요소 접근
+            var myId = document.getElementById("my-id").value;
+            var myPw = document.getElementById("my-pw").value;
+            var loginSuccess = false;
+            for(var i = 0 ; i < memberList.length ; i++){
+                if(memberList[i].id===myId && memberList[i].pw===myPw){
+                    loginSuccess=true;
+                }
+            }
+
+            if(loginSuccess){
+                alert('로그인 성공');
+            }else{
+                alert('로그인 실패');
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="my-id" placeholder="아이디 입력"><br>
+    <input type="password" id="my-pw" placeholder="비밀번호 입력">
+    <button onclick="myFunc()">로그인</button>
+</body>
+</html>

@@ -6,7 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-    
+        //JSON배열
+        //배열인데 원소가 객체, JSON이다.
+        //var movieList=[]
+        var movieList=new Array(0);
+        var n = prompt('영화 몇개 입력?');
+        n = parseInt(n);
+        //영화 정보 3개 받아서
+        //길이가 3인 JSON배열 만들어서 출력
+        //for, prompt, push
+        for(var i = 0 ; i < n ; i++){
+            var title = prompt(`${i+1}번째 영화 제목`);
+            var runningTime = prompt(`${i+1}번째 영화 러닝타임`);
+            var rating = prompt(`${i+1}번째 영화 평점`);
+
+            var movie = {title:title, runningTime:runningTime,rating:rating};
+            movieList.push(movie);
+        }
+
+        for(var i = 0 ; i < n ; i++){
+            document.write(`${i+1}번째 영화 제목 ${movieList[i].title}<br>`);
+            document.write(`${i+1}번째 영화 러닝타임 ${movieList[i].runningTime}<br>`);
+            document.write(`${i+1}번째 영화 평점 ${movieList[i].rating}<br><br>`);
+        }
     </script>
 </head>
 <body>

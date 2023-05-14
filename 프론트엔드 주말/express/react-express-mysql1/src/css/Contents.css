@@ -1,0 +1,26 @@
+#contents{
+    width: 1200px;
+    height: 200px;
+    background-color: chartreuse;
+}
+
+#contents>#cont1{
+    float: left;
+    width: 480px;
+    height: 200px;
+    background-color: darkturquoise;
+}
+
+#contents>#cont2{
+    float: left;
+    width: 360px;
+    height: 200px;
+    background-color: salmon;
+}
+
+#contents>#cont3{
+    float: left;
+    width: 360px;
+    height: 200px;
+    background-color: ghostwhite;
+}

@@ -1,0 +1,19 @@
+#header{
+    width: 1200px;
+    height: 150px;
+    background-color: bisque;
+}
+
+#header>#logo{
+    float:left;
+    width: 200px;
+    height: 150px;
+    background-color: green;
+}
+
+#header>#nav{
+    float: left;
+    width: 1000px;
+    height: 150px;
+    background-color: hotpink;
+}

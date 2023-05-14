@@ -10,7 +10,7 @@ public class BoardDB {
     private ResultSet rs;
 
     public BoardDB() {
-        String url = "jdbc:mysql://127.0.0.1:3306/practice";
+        String url = "jdbc:mysql://127.0.0.1:3306/practice?serverTimezone=UTC&useSSL=false";
         String id = "root";
         String pw = "1234";
 
@@ -38,10 +38,10 @@ public class BoardDB {
         }
     }
 
-    public void findByTitle(String title) {
+    public void searchByTitle(String title) {
         try {
-            pst = con.prepareStatement("select * from board where title=?");
-            pst.setString(1, title);
+            pst = con.prepareStatement("select * from board where title like ?");
+            pst.setString(1, "%"+title+"%");
             rs = pst.executeQuery();
             System.out.println(" no |   title   |     contents    |   password   |  write_date ");
             while (rs.next()) {

@@ -10,45 +10,47 @@ public class BoardMain {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
-            System.out.println("1.ALL Search");
-            System.out.println("2.Title Search");
-            System.out.println("3.Registry");
-            System.out.println("4.Update");
-            System.out.println("5.Delete");
-            System.out.println("6.EXIT");
-            System.out.print("Menu Choice : ");
+            System.out.println("==========================================================");
+            System.out.println("1.전체조회");
+            System.out.println("2.제목검색");
+            System.out.println("3.등록");
+            System.out.println("4.수정");
+            System.out.println("5.삭제");
+            System.out.println("6.종료");
+            System.out.println("==========================================================");
+            System.out.print("메뉴 선택 : ");
             choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case 1:
                     db.selectALL();
                     break;
                 case 2:
-                    System.out.print("Title Input : ");
+                    System.out.print("제목입력 : ");
                     String title = sc.nextLine();
-                    db.findByTitle(title);
+                    db.searchByTitle(title);
                     break;
                 case 3:
-                    System.out.print("no : ");
+                    System.out.print("번호 : ");
                     int no = Integer.parseInt(sc.nextLine());
-                    System.out.print("title : ");
+                    System.out.print("제목 : ");
                     title = sc.nextLine();
-                    System.out.print("contents : ");
+                    System.out.print("내용 : ");
                     String contents = sc.nextLine();
-                    System.out.print("password : ");
+                    System.out.print("비밀번호 : ");
                     String password = sc.nextLine();
-                    System.out.print("write_date : ");
+                    System.out.print("등록일자 : ");
                     String write_date = sc.nextLine();
                     db.registry(no,title,contents,password,write_date);
                     break;
                 case 4:
-                    System.out.print("no : ");
+                    System.out.print("번호 : ");
                     no = Integer.parseInt(sc.nextLine());
-                    System.out.print("contents : ");
+                    System.out.print("내용 : ");
                     contents = sc.nextLine();
                     db.updateByNo(no,contents);
                     break;
                 case 5:
-                    System.out.print("no : ");
+                    System.out.print("번호 : ");
                     no = Integer.parseInt(sc.nextLine());
                     db.deleteByNo(no);
                     break;

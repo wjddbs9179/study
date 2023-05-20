@@ -1,1 +1,9 @@
 http://naver.me/xcJ3oE9l
+
+"모든 프로그램 및 애플리케이션은 main에서 시작한다."
+
+arguments (인수) / parameter (매개변수, 인자)
+
+void main(List<String> args){
+	//
+}

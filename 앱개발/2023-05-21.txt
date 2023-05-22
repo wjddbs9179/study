@@ -1,0 +1,19 @@
+1. Flutter SDK Download - Windows / Linux / MacOS (최신버전, 제일 앞자리 버전을 기준으로 최신버전)
+2. flutter doctor -v 에서 모든 초록색
+	-> android sdk toolchain : Android Studio Download / 설치
+	-> Android studio 실행
+	-> Android studio 에서 File -> Settings -> "sdk" 검색 후
+	-> "Android SDK" 를 선택 -> SDK Tools 탭 -> Command-line Tool을 설치
+	-> android sdk licenses 문제 : "flutter doctor --android-licenses" 입력하여 모두다 y
+	-> Visual Studio 문제 : Visual Studio Community 최신버전 설치
+	-> Visual Studio Installer 실행
+	-> "Visual Studio 2022" 옆에 보면 "수정"을 누름
+	-> Desktop Development with C++(C++ 데스크톱 개발) 활성화 -> 확인 버튼
+	-> Mac 문제 : xcode 를 앱스토어 다운로드 및 설치 -> xcode 실행
+3. Android Studio 또는 Intellij IDEA에서 플러그인 "Flutter" 설치
+
+프로젝트 만드는 과정
+4. Android Studio 또는 Intellij IDEA
+	-> File > New > New Flutter project 또는 File > New > Project > Flutter 선택
+	-> 근데 여기서 Flutter SDK path가 안나올 경우 직접 입력
+5. Flutter 프로젝트 설정사항을 입력 후 프로젝트가 화면에 보임

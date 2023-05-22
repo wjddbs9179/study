@@ -1,0 +1,78 @@
+.container{
+    display:flex;
+    /*width:500px;*/
+    /*height: 500px;*/
+    background-color: blueviolet;
+    border:1px solid black;
+    margin-bottom: 20px;
+}
+.box{
+    width: 80px;
+    font-weight: bold;
+    color:white;
+    background-color: black;
+}
+
+#opt1{
+    /*
+        flex : flex는 기본 한 줄 전부 차지하는 block요소의 특성
+        내부 요소를 꽉 채우려고 하는 습성이 있음.
+        flex-direction : 내부 요소를 진행시키는 방향을 결정
+        row - 왼쪽끝부터 시작하게 함.
+        row-reverse - 오른쪽 끝부터 시작하게 함
+        column - 위부터 아래로
+        column-reverse - 아래부터 위로
+
+        flex-wrap : 내부 요소를 다음 줄로 이동 시킬지 결정
+        nowrap - 최대한 내부 요소의 width 상관없이 한줄 안에 채우려고 노력함.
+        wrap - 내부 요소의 width를 유지하며, 부모인 container width를 초과할 시 다음 줄로 이동
+        wrap-reverse : wrap과 동일한데 다음 줄로 이동할 때 반대방향으로 이동한다.(윗 줄로 이동한다던지)
+     */
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#opt2 >.box{
+    height:60px;
+}
+/*
+    justify-content 와 align-items 는 flex-direction 에 의해 축이 결정된다.
+    => 무조건 display: flex 가 달려있는 요소에 적용해야 함!!
+    align-items : 내부 요소들을 어떻게 정렬하지 정함(교차축)
+    justify-content : 내부 요소들을 어떻게 정렬할 지 정함
+    center; => 중앙정렬
+    space-evenly; => 각 요소들 사이의 간격을 완전 동일하게 함.
+    space-around; => 각 요소들의 양쪽 간격을 동일하게 함(그래서 양쪽끝은 좁을 수 있음)
+    space-between; => 양쪽 끝을 요소를 딱 붙이고 나머지는 요소들의 여백을 동일하게 함.
+    flex-end; => 반대편에 딱 붙인다.
+    flex-start; => 기본값. 왼쪽 정렬
+    stretch; => 항목을 늘려서 가득차게 배치한다.
+    baseline; => 문자 기준선에 맞춰서 배치한다.
+*/
+#opt2{
+    flex-direction: row;
+    width: 500px;
+    height: 200px;
+    /*flex-wrap:wrap;*/
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#opt3{
+    width:450px;
+    height:150px;
+    align-items:center;
+    justify-content: center;
+}
+
+#opt3 > div:nth-child(2){
+    align-self: flex-start;
+}
+
+#opt3 > div:nth-child(3){
+    align-self: stretch;
+}
+
+#opt3 > div:nth-child(4){
+    align-self: flex-end;
+}

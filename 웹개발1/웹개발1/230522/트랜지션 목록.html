@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>신상품 목록</title>
+</head>
+<style>
+    .container {
+        display: inline-block;
+        position: relative;
+        width: 300px;
+        border: 2px solid black;
+        overflow: hidden;
+    }
+
+    .container > img {
+        transform: scale(80%);
+        width: 100%;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    section {
+        text-align: center;
+    }
+
+    .inner {
+        position: absolute;
+        padding: 0.3rem 0.5rem;
+        color: white;
+        width: 100%;
+    }
+
+    .title {
+        top: -10px;
+        font-size: 2rem;
+        height: 20%;
+        opacity: 0;
+        transition-duration: 1s;
+        font-weight: bold;
+    }
+
+    .content {
+        bottom: 0;
+        font-size: 1.5rem;
+        height: 60%;
+        opacity: 0;
+        transition-duration: 1s;
+        text-align: left;
+    }
+
+    .container:hover > img {
+        transform: scale(100%);
+        filter: brightness(65%);
+        opacity: 0.5;
+        transition-duration: 0.8s;
+    }
+
+    .container:hover > .title {
+        top: 10px;
+        opacity: 1;
+    }
+
+    .container:hover > .content {
+        bottom: 10px;
+        opacity: 1;
+    }
+</style>
+<body>
+<h1>신상 목록</h1>
+<section>
+    <div class="container">
+        <img src="img/iphone14.jpg" alt="">
+        <div class="title inner">제목</div>
+        <div class="content inner">내용</div>
+    </div>
+    <div class="container">
+        <img src="img/iphone14.jpg" alt="">
+        <div class="title inner">제목</div>
+        <div class="content inner">내용</div>
+    </div>
+    <div class="container">
+        <img src="img/iphone14.jpg" alt="">
+        <div class="title inner">제목</div>
+        <div class="content inner">내용</div>
+    </div>
+</section>
+</body>
+</html>

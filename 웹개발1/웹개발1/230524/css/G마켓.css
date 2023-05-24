@@ -1,0 +1,92 @@
+section{
+    width: 50%;
+    text-align: center;
+}
+
+.menu-container {
+    background-color: blanchedalmond;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-container > div {
+    margin: 0.2rem;
+    padding: 0.3rem 1.6rem;
+    display: inline-block;
+}
+
+.menu-container span {
+    color: white;
+    font-weight: bold;
+    padding: 1rem 1.6rem;
+}
+
+.menu-container span:hover{
+    border:1px solid black;
+    background-color: green;
+    border-radius: 1.3rem;
+    color: white;
+}
+.content-container{
+    display: grid;
+    /*width: 500px;*/
+    grid-template-columns:repeat(2,1fr);
+    padding:1.2rem 0;
+    gap:10px 0;
+}
+
+.content-container > img{
+    width:50%;
+}
+.menu-container > div{
+    display: inline-block;
+    padding: 0 1.6rem;
+    border-right: 1.5px solid gray;
+}
+.menu-container >div:last-child{
+    border:none;
+}
+.content{
+    display: flex;
+}
+.content>img{
+    width: 100px;
+    margin-right: 0.6rem;
+}
+.content>div{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.content > div:first-child{
+    width:100px;
+    overflow: hidden;
+    margin-right: 0.6rem;
+}
+.content > div > div:nth-child(2){
+    margin: 0;
+}
+.sale{
+    background-color: greenyellow;
+    color:white;
+}
+.brand{
+    color:#CDE0E5;
+    color:#ABA0F8;
+}
+.title{
+    color: gray;
+}
+.price{
+    font-weight: bold;
+    font-size: large;
+}
+button{
+    width: 100%;
+    padding: 1.5rem 0;
+    border:1px solid black;
+    border-radius: 1.23rem;
+    background-color: gray;
+}

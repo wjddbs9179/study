@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GRID 예제</title>
+
+    <style>
+        #wrapper{
+            display: grid;
+            /*grid-template-columns: 200px 100px 300px;*/
+            grid-template-columns: repeat(2,500px); /* minmax(100px, 300px); */
+            /*grid-template-rows: 250px 200px;*/
+            grid-template-rows: minmax(100px, 300px);
+            gap:20px 50px; /* 세로 가로 간격 띄우기 */
+        }
+        .items{
+            padding:1.4em 1em;
+            background-color: lightgray;
+            border:1px solid black;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div class="items">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae consectetur debitis dolores
+        ea eligendi, expedita explicabo fugiat, ipsam magnam necessitatibus perferendis perspiciatis quas, quia
+        quibusdam repellat soluta tempora voluptatibus?
+    </div>
+    <div class="items">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae consectetur debitis dolores
+        ea eligendi, expedita explicabo fugiat, ipsam magnam necessitatibus perferendis perspiciatis quas, quia
+        quibusdam repellat soluta tempora voluptatibus?
+    </div>
+    <div class="items">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae consectetur debitis dolores
+        ea eligendi, expedita explicabo fugiat, ipsam magnam necessitatibus perferendis perspiciatis quas, quia
+        quibusdam repellat soluta tempora voluptatibus?
+    </div>
+    <div class="items">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae consectetur debitis dolores
+        ea eligendi, expedita explicabo fugiat, ipsam magnam necessitatibus perferendis perspiciatis quas, quia
+        quibusdam repellat soluta tempora voluptatibus?
+    </div>
+    <div class="items">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae consectetur debitis dolores
+        ea eligendi, expedita explicabo fugiat, ipsam magnam necessitatibus perferendis perspiciatis quas, quia
+        quibusdam repellat soluta tempora voluptatibus?
+    </div>
+</div>
+</body>
+</html>

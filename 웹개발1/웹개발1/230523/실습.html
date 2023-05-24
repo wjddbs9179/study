@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .container{
+    }
+    .tabmenu {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        border-bottom: 1px solid black;
+    }
+
+    .tabmenu > li {
+        text-align: center;
+        display: inline-block;
+        border-radius: 20px 20px 20px 20px;
+        padding: 10px;
+        width: 100px;
+        margin: 10px;
+    }
+
+    .tabmenu a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .tabmenu > li:hover {
+        background-color: lawngreen;
+    }
+
+    .tabmenu > li:hover a {
+        color: white;
+    }
+
+    .itemlist {
+        display: grid;
+        grid-template-columns: repeat(2, 400px);
+    }
+
+    .box {
+        display: grid;
+        grid-template-areas:
+        "image event"
+        "image content"
+        "image price";
+    }
+
+    .box .image {
+        grid-area: image;
+        border:1px solid darkgray;
+        border-radius: 5px;
+    }
+
+    .box .event {
+        display: inline-block;
+        grid-area: event;
+        width: 110px;
+        height: 25px;
+        margin: 10px;
+    }
+
+    .box .content {
+        grid-area: content;
+        width: 200px;
+        margin: 10px;
+    }
+
+    .box .price {
+        grid-area: price;
+        font-weight: bold;
+        margin: 10px;
+    }
+
+    .image > img {
+        width: 100px;
+        height: 150px;
+    }
+
+    .event {
+        background-color: lawngreen;
+    }
+
+    .box {
+        padding: 10px 50px 10px 10px;
+    }
+
+    .more{
+        text-align: center;
+    }
+    .more-button{
+        border-radius: 20px;
+        width: 800px;
+        height: 50px;
+    }
+
+    .item-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .itemlist{
+        margin: 10px;
+    }
+</style>
+<body>
+<div class="container">
+    <ol class="tabmenu">
+        <li><a href="#">하나더</a></li>
+        <li><a href="#">전단상품</a></li>
+        <li><a href="#">오반장</a></li>
+    </ol>
+
+    <div class="item-container">
+        <div class="itemlist">
+        <div class="box">
+            <div class="image"><img src="http://gdimg.gmarket.co.kr/2042803345/still/280?ver=1676959826" alt=""></div>
+            <div class="event">2개 사면 할인</div>
+            <div class="content">로더베르 시그니처 퍼퓸바디워시 미드나잇메모리 1000g</div>
+            <div class="price">10,900원</div>
+        </div>
+        <div class="box">
+            <div class="image"><img src="http://gdimg.gmarket.co.kr/2042803345/still/280?ver=1676959826" alt=""></div>
+            <div class="event">2개 사면 할인</div>
+            <div class="content">블랙 남성 올인원 타우린워시 300ml 1개 남자바디워시</div>
+            <div class="price">16,800원</div>
+        </div>
+        <div class="box">
+            <div class="image"><img src="http://gdimg.gmarket.co.kr/2569078281/still/280?ver=1662432648" alt=""></div>
+            <div class="event">2개 사면 할인</div>
+            <div class="content">시그니처 대용량 바디워시 클린솝향 1077ml 2개</div>
+            <div class="price">20,900원</div>
+        </div>
+        <div class="box">
+            <div class="image"><img src="http://gdimg.gmarket.co.kr/2369792414/still/280?ver=1684719400" alt=""></div>
+            <div class="event">2개 사면 할인</div>
+            <div class="content">그루밍랩 남자바디워시 올인원 타우린워시300ml 3개입</div>
+            <div class="price">36,300원</div>
+        </div>
+        </div>
+        <div class="more"><button class="more-button">하나더 상품 더보기</button></div>
+    </div>
+</div>
+</body>
+</html>

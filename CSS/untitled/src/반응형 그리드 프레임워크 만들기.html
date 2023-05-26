@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>반응형 그리드 프레임워크 만들기</title>
+</head>
+<body>
+<h1>4칼럼 반응형 그리드</h1>
+<div class="container">
+    <div class="row">
+        <div class="col col-xs-4 col-sm-2 col-md-1"></div>
+        <div class="col col-xs-4 col-sm-2 col-md-1"></div>
+        <div class="col col-xs-4 col-sm-2 col-md-1"></div>
+        <div class="col col-xs-4 col-sm-2 col-md-1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col col-xs-4 hidden-under-sm a1">
+        </div>
+    </div>
+</div>
+</body>
+<style>
+    div.container {
+        max-width: 980px;
+        margin: 0 auto;
+    }
+
+    div.row {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    div.row::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    div.row > div.col {
+        width: 25%;
+        float: left;
+        box-sizing: border-box;
+        padding: 15px;
+    }
+
+    div.row > div.col::after {
+        content: "";
+        display: block;
+        height: 100px;
+        background-color: gold;
+    }
+
+    div.row > div.col.col-xs-1 {
+        width: 25%;
+    }
+
+    div.row > div.col.col-xs-2 {
+        width: 50%;
+    }
+
+    div.row > div.col.col-xs-3 {
+        width: 75%;
+    }
+
+    div.row > div.col.col-xs-4 {
+        width: 100%;
+    }
+
+    @media (min-width: 650px) {
+        div.row > div.col.col-sm-1 {
+            width: 25%;
+        }
+
+        div.row > div.col.col-sm-2 {
+            width: 50%;
+        }
+
+        div.row > div.col.col-sm-3 {
+            width: 75%;
+        }
+
+        div.row > div.col.col-sm-4 {
+            width: 100%;
+        }
+    }
+
+    @media (min-width: 750px) {
+        div.row > div.col.col-md-1 {
+            width: 25%;
+        }
+
+        div.row > div.col.col-md-2 {
+            width: 50%;
+        }
+
+        div.row > div.col.col-md-3 {
+            width: 75%;
+        }
+
+        div.row > div.col.col-md-4 {
+            width: 100%;
+        }
+    }
+
+    div.row > div.col.a1::after {
+        background-color: blue;
+    }
+
+    @media (max-width: 649px) {
+        .hidden-under-sm {
+            display: none;
+        }
+    }
+</style>
+</html>

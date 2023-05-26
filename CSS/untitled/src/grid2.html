@@ -5,15 +5,86 @@
     <title>Title</title>
 </head>
 <body>
-<div class="a">
-  123
-</div>
 
+<div class="container">
+    <div class="row">
+        <div class="col row1-col3"></div>
+        <div class="col row1-col1"></div>
+    </div>
+    <div class="row">
+        <div class="col row2-col4"></div>
+    </div>
+    <div class="row">
+        <div class="col row3-col2"></div>
+        <div class="col row3-col2"></div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+    </div>
+</div>
 </body>
 
 <style>
-  div.a{
-    color:blue;
-  }
+    div.container {
+        max-width: 980px;
+        margin: 0 auto;
+        border: 10px solid gray;
+    }
+
+    div.row::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    div.row > div.col {
+        float: left;
+        width: 25%;
+        height: 100px;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    div.row > div.col::after {
+        content: "";
+        display: block;
+        height: 100%;
+        background-color: red;
+    }
+
+    div.row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+
+    div.row > div.col.row1-col3{
+        width: 75%;
+    }
+
+    div.row > div.col.row2-col4{
+        width: 100%;
+    }
+
+    div.row > div.col.row3-col2 {
+        width: 50%;
+    }
+
+    @media (max-width:800px) {
+        div.row > div.col {
+            width: 50%;
+        }
+        div.row > div.col.row1-col3{
+            width: 100%;
+        }
+    }
+
+    @media (max-width:500px) {
+        div.row > div.col{
+            width: 100%;
+        }
+    }
 </style>
 </html>

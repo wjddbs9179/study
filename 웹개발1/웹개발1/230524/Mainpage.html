@@ -8,7 +8,38 @@
     <link rel="stylesheet" href="css/메인페이지.css">
     <script src="https://kit.fontawesome.com/9e41f7dadf.js" crossorigin="anonymous"></script>
 </head>
+<script>
+    window.onload = () =>{
+        const headB = document.getElementsByClassName("headB").item(0);
+        const button = document.getElementById('button');
+
+        button.onclick = () =>{
+            headB.toggleAttribute('active');
+        }
+    }
+    window.document.addEventListener('');
+</script>
 <body>
+<header>
+    <div class="container">
+        <div class="container-small">
+            <a href="#" class="headA">LOGGER</a>
+            <button id="button" type="button" class="headC">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <nav class="headB">
+            <ul>
+                <li><a href="#">TOP</a></li>
+                <li><a href="#">CONTENT1</a></li>
+                <li><a href="#">CONTENT2</a></li>
+                <li><a href="#">CONTENT3</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
 <section class="conA">
     <div class="container">
         <img src="img/icons8-호머-심슨-64.png" alt="">
@@ -54,10 +85,78 @@
         <div class="photo"></div>
         <div class="text">
             <h2>귀찮은 설정과 데이터 관리를 하지 않아도 됩니다.</h2>
-            <p>LOGGER에서는 귀찮은 설정과 데이터 관리를 따로 하지 않아도 됩니다. 다른 어플과의 간단한 연동으로 실시간 자동 관리를 경험해보세요.</p>
+            <p>LOGGER에서는 귀찮은 설정과 데이터 관리를 따로 하지 않아도 됩니다.<br/>
+                다른 어플과의 간단한 연동으로 실시간 자동 관리를 경험해보세요.</p>
             <a href="#">자세한 설정 방법 살펴보기</a>
         </div>
     </div>
 </section>
+
+<section class="conD">
+    <div class="container">
+        <div class="photo"></div>
+        <div class="text">
+            <h2>데이터 LOG와 함께하는 즐거운 일상 생활</h2>
+            <p>그때그때 데이터를 기록하는 데이터 LOG.<br/>
+                잘 정리된 데이터를 보면 그때는 알지 못했던 데이터의 본질이 보입니다.
+            </p>
+            <a href="#">자세한 설정 방법 살펴보기</a>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="footA">
+            <h2>LOGGER</h2>
+            <p>
+                주소 : 대구 중구 코리아IT아카데미<br/>
+                <a href="https://www.koreaisacademy.com">https://www.koreaisacademy.com</a>
+            </p>
+            <nav class="footD">
+                <ul>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <nav class="footB">
+            <div>
+                <h3>ABOUT</h3>
+                <ul>
+                    <li><a href="#">설립</a></li>
+                    <li><a href="#">주소</a></li>
+                    <li><a href="#">지도</a></li>
+                    <li><a href="#">스태프</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>SUPPORT</h3>
+                <ul>
+                    <li><a href="#">다운로드</a></li>
+                    <li><a href="#">메뉴얼</a></li>
+                    <li><a href="#">자주 묻는 질문</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>INTRO</h3>
+                <ul>
+                    <li><a href="#">소개</a></li>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">제휴업체</a></li>
+                    <li><a href="#">개인취급방침</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="footC">
+            &#169; LOGGER corp. All rights reserved.
+        </div>
+    </div>
+</footer>
 </body>
 </html>

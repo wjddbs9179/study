@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS기초</title>
+<script>
+    var1 = 1;
+    console.log('var1 :',var1);
+    var1 = 2;
+    console.log('var1 :',var1);
+
+    const var2 = 2; /* 상수. 무조건 처음에 값을 넣어야 하고 값을 못바꿈 */
+    console.log('var2 :',var2);
+    // var2 = 3; 상수 -> 에러
+    /* 값을 재정의 할 수 있고, 값이 없을 때는 undefined 임*/
+    let var3;
+    var3 = 10; //변수에 들어 있는 값만 변경
+    console.log('var3 :',var3);
+    // let var3 = 50; /* 에러. 같은 이름의 변수 다시 생성 못함 */
+    // console.log('var3 :',var3);
+
+    //let과 사용이 같음. 다른 점은... 같은 이름의 변수 재 정의가 가능
+    var var4 = 4;
+    console.log('var4 :',var4);
+
+    var4 = 5;
+    console.log('var4 :',var4);
+
+    var var4 = 10;
+    console.log('var4 :',var4);
+    // let과 const를 이용하는게 best
+
+    // 문자열을 숫자로 변환하기
+    let s = '2';
+    let result = s - 0; //1) 0을 뺀다.
+    result = +s;        //2) 변수 앞에 + 붙이기
+    result = Number.parseInt(s); //
+    console.log(result + 10);
+
+    let check = [];
+    result = Boolean(check);
+    console.log(result);
+
+
+    let 마우스 = 5000;
+    let 객체 = {
+        마우스 : 1000,
+        이름 : '김성우',
+        5000 :'테스트'
+    };
+    console.log(객체[마우스]); //5000으로 인식해서 '테스트'가 나옴
+    console.log(객체["마우스"]); //'마우스'로 인식해서 1000이 나옴.
+    객체.new = '새로운 값'; //새로운 쌍을 추가할때는 그냥 작성
+    객체.new = '변경된 값'; //기존 값을 추가하려고 하면 값이 변경됨.
+    delete 객체.new; //해당 프로퍼티 쌍을 삭제할 경우
+    console.log(객체.new); //없는 프로퍼티 값을 가져오려고 하면 undefined
+    //해당 프로퍼티가 객체에 존재하는지 검사할 경우
+    result = '마우스' in 객체; //result에 true / false가 저장
+    console.log(result);
+
+    /*************** 조건문 ****************/
+    //결과가 true or false인 구문에 대해 원하는 처리를 하는 것 (분기)
+    //if : () 안의 결과가 true 일 때 실행
+    // if(//true or false 구문){
+    //
+    // }
+    var number = 10;
+    if(number > 5){
+        console.log('맞아요');
+    }else{//else : if의 결과가 false일 때 실행
+        console.log('틀려요');
+    }
+</script>
+</head>
+<body>
+</body>
+</html>

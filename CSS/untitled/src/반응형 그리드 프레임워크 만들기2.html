@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col col-xs-3"></div>
+    <div class="col col-xs-3"></div>
+    <div class="col col-xs-3"></div>
+    <div class="col col-xs-3"></div>
+
+    <div class="col col-xs-4"></div>
+    <div class="col col-xs-4"></div>
+    <div class="col col-xs-4"></div>
+
+    <div class="col col-xs-6"></div>
+    <div class="col col-xs-6"></div>
+
+    <div class="col col-xs-12"></div>
+
+    <div class="col col-xs-11"></div>
+    <div class="col col-xs-1"></div>
+
+    <div class="col col-xs-10"></div>
+    <div class="col col-xs-2"></div>
+
+    <div class="col col-xs-9"></div>
+    <div class="col col-xs-3"></div>
+
+    <div class="col col-xs-8"></div>
+    <div class="col col-xs-4"></div>
+
+    <div class="col col-xs-7"></div>
+    <div class="col col-xs-5"></div>
+
+    <div class="col col-xs-6"></div>
+    <div class="col col-xs-6"></div>
+
+    <div class="col col-xs-5"></div>
+    <div class="col col-xs-7"></div>
+
+    <div class="col col-xs-4"></div>
+    <div class="col col-xs-8"></div>
+
+    <div class="col col-xs-3"></div>
+    <div class="col col-xs-9"></div>
+
+    <div class="col col-xs-2"></div>
+    <div class="col col-xs-10"></div>
+
+    <div class="col col-xs-1"></div>
+    <div class="col col-xs-11"></div>
+
+    <div class="col col-xs-12"></div>
+  </div>
+</div>
+</body>
+<style>
+  div.container{
+    margin:0 auto;
+    max-width: 980px;
+  }
+  div.row{
+    margin: 0 -15px;
+  }
+  div.row::after{
+    content:"";
+    display: block;
+    clear: both;
+  }
+  div.row > div.col{
+    float: left;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+  }
+
+  /* 테스트용 코드 */
+  div.row > div.col::after{
+    content: "";
+    display: block;
+    height: 100px;
+    background-color: green;
+  }
+
+  div.row > div.col.col-xs-1 {
+    width: 8.3333%;
+  }
+  div.row > div.col.col-xs-2 {
+    width: 16.6666%;
+  }
+
+  div.row > div.col.col-xs-3 {
+    width: 25%;
+  }
+
+  div.row > div.col.col-xs-4 {
+    width: 33.3333%;
+  }
+
+  div.row > div.col.col-xs-5 {
+    width: 41.6666%;
+  }
+
+  div.row > div.col.col-xs-6 {
+    width: 50%;
+  }
+
+  div.row > div.col.col-xs-7 {
+    width: 58.3333%;
+  }
+
+  div.row > div.col.col-xs-8 {
+    width: 66.6666%;
+  }
+
+  div.row > div.col.col-xs-9 {
+    width: 75%;
+  }
+
+  div.row > div.col.col-xs-10 {
+    width: 83.3333%;
+  }
+
+  div.row > div.col.col-xs-11 {
+    width: 91.6666%;
+  }
+
+  div.row > div.col.col-xs-12 {
+    width: 100%;
+  }
+</style>
+</html>

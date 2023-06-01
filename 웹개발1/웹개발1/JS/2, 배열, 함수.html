@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        let arrCon = Array(6); //생성자 방식
+        arrCon.push(6);
+        let arrLit = [1, 2, 3, 4, 5]; //리터럴 방식 (*추천!)
+        arrLit.push(6); //맨 마지막에 값 추가
+        let number = arrLit[2];
+        console.log(number);
+        arrLit[2] = 'test';
+        console.log(arrLit[2]);
+
+        console.log(arrCon);
+        console.log(arrLit); //1,2,'test',4,5,6
+        // 배열의 마지막 요소를 제거
+        let r = arrLit.pop(); //r에는 제거한 마지막 요소를 저장
+        console.log(`r = ${r}`);
+        console.log(arrLit); //1, 2, 'test', 4, 5
+        let l = arrLit.length; //현재 배열의 길이를 알려줌
+        console.log(`개수 : ${l}`);
+        arrLit.unshift(0, 10, 20);
+        r = arrLit.shift(); // 배열의 가장 첫번째 요소 제거
+
+        arrLit.copyWithin(50, 2, 3);
+        let newArr = arrLit.copyWithin(2,2,4);
+        console.log(arrLit);
+        console.log(newArr);
+        arrLit.fill(50, 2, 5);
+        console.log(arrLit);
+        arrLit.splice(0,4,5,1,100);
+        console.log(arrLit);
+
+        let numbers = [10, 1, 85, 5, 6];
+        numbers.sort((x, y) => x - y);
+        numbers.reverse();
+        console.log(numbers);
+
+        arrLit = [10, 20, 10, 20, 40];
+        newArr = [30, 40];
+        let result = arrLit.concat(newArr);
+        console.log(result);
+        console.log("위치 : " + arrLit.indexOf(20,2));
+
+        console.log(arrLit); //[10, 20, 10, 20, 40]
+        let str = arrLit.join(' ');
+        console.log(str);
+        str = arrLit.slice(2, 4); //index 2부터 index 3포함, index 4는 포함안함.
+        console.log(str);
+
+        arrLit = [1,2,3,4,5];
+        arrLit.copyWithin(2, 0, 2);
+        console.log(arrLit);
+        //원본 배열의 index 2부터 3개의 요소를 제거하고 그 자리에 10, 20을 삽입
+        arrLit.splice(2, 3, 10, 20);
+        console.log(arrLit);
+
+        /*********************** String *************************/
+        let s = 'This is test string';
+        result = s.charAt(2); //i
+        result = s.endsWith('string'); //확장자명 검사시 유용함 .jpg, .txt 등..
+        console.log('결과 :',result);
+        result = s.includes('test');//타언어의 contains 와 같음.
+        console.log('결과 :',result);
+
+        result = s.repeat(5);
+        console.log('결과 :',result);
+
+        result = s.replace('is','AB');
+        console.log('s :',s);
+        console.log('result :',result);
+        result = s.slice(2,4);
+        console.log(`result = ${result}`);
+
+        s = 'This is test string';
+        result = s.split('is ');
+        console.log(result);
+
+        // s.startsWith('')
+
+        /***********************************************/
+        // date 객체는 내부적으로는 날짜와 시간을 나타내는 정수값을 가짐
+        // 1970년 1월 1일 0:0:0 기준 현재까지의 밀리초 시간
+        // 현재 시간으로 생성하기
+        let date = new Date();
+        console.log(date);
+        // 날짜와 시간을 정해서 생성하기
+        date = new Date('2020/03/26/05:30:55');
+        console.log(date);
+        // 년, 월, 일, 시, 분, 초, 밀리초
+        date = new Date(2022,4,10,17,13,10);
+        console.log(date);
+
+        result = Date.now(); // 1970년 1월 1일부터 경과된 밀리초
+        console.log('현재까지의 초 시간 :',result);
+
+        // 1970년 1월 1일부터 경과된 밀리초 동일.
+        result = Date.parse('Tue May 10 2022 05:30:55');
+        console.log(result);
+
+        result = Date.UTC(2022,2,10);
+        console.log('위 시간까지의 초시간 :',result);
+
+        date = new Date();
+        console.log(date.toLocaleString());
+
+        /**************************************/
+        let arrdim = [
+            [1,2,3],
+            4,
+            5
+        ];
+        let arrVal = arrdim[0];
+        console.log('arrdim :',arrdim);
+        console.log('arrVal :',arrVal);
+        console.log('arrVal[1] :',arrVal[1]);
+        console.log('arrdim[0][1] :',arrdim[0][1]);
+
+        /****************************************/
+        arr = [1, 10, 100, 1000];
+        // console.log(arr[0]);
+        // console.log(arr[1]);
+        // console.log(arr[2]);
+        // console.log(arr[3]);
+        for(let i = 0 ; i < arr.length ; i++){
+            console.log(arr[i]);
+        }
+        for(let i in arr){ //index를 순회
+            console.log('i :',i);
+        }
+        for(let i of arr){ //value를 순회 => foreach와 비슷
+            console.log('i :',i);
+        }
+        //일반 객체에서는 in은 사용 가능 => 프로퍼티명을 순회
+        //of는 사용 불가 (iterable이 아님)
+        let obj = {'a': 'test', 'b': 'test1', 'c':'test2'};
+        for(let i in obj){
+            console.log(`프로퍼티명 : ${i}`);
+            console.log(`프로퍼티값 : ${obj[i]}`);
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /* 1번 */
+        let arr1 = [false, false, true, false, false, false, true, false];
+        let T = 0;
+        let F = 0;
+        for (let b of arr1) {
+            if (b) {
+                T++;
+            } else {
+                F++;
+            }
+        }
+        console.log(`T = ${T}`);
+        console.log(`F = ${F}`);
+
+        /* 2번 */
+        let arr2 = ['aBc', 'AbC', 'AAA', 'BBB', 'CCC', 'DDD'];
+        for (let i in arr2) {
+            if (i % 2 === 0) {
+                arr2[i] = arr2[i].toLowerCase();
+            } else {
+                arr2[i] = arr2[i].toUpperCase();
+            }
+        }
+        console.log(arr2);
+
+        /* 3번 */
+        let arr3 = ['123456789', '1000000'];
+        let arr3Result = [];
+        for (let i = 0; i < arr3.length; i++) {
+            let sum = 0;
+            for (let j = 0; j < arr3[i].length; j++) {
+                sum += parseInt(arr3[i][j]);
+            }
+            arr3Result.push(sum);
+        }
+        console.log(arr3Result);
+
+        /* 4번 */
+        let arr4 = {'ProgrammerS123':3,'HellOWOrld':5}
+        for(let str in arr4){
+            console.log(str.substring(arr4[str]));
+        }
+
+        /* 5번 */
+        let arr5 = [[3,4,5,2,5,4,6,7,3,7,2,2,1],[2,3,4,5],[10,100,1000],[1,2,3,4,5]];
+        for(let i = 0 ; i < arr5.length ; i++){
+            if(arr5[i].length>=5){
+                let sum = 0;
+                for(let j = 0 ; j < arr5[i].length ; j++){
+                    sum += arr5[i][j];
+                }
+                console.log(`sum = ${sum}`);
+            }else{
+                let mul = arr5[i][0];
+                for(let j = 1 ; j < arr5[i].length ; j++){
+                    mul *= arr5[i][j];
+                }
+                console.log(`mul = ${mul}`);
+            }
+        }
+
+        /* 6번 */
+        let str6 = '1x22x233x1000xx858';
+        let arr6 = str6.split('x');
+        for(let i = 0 ; i < arr6.length ; i++){
+            if(arr6[i]===''){
+                arr6.splice(i,1);
+            }
+        }
+        console.log(arr6);
+
+        /* 7번 */
+        let arr7 = [293, 1000, 395, 678, 94];
+        let delete_list = [94, 777, 104, 1000, 1, 12];
+
+        for(let i = 0 ; i < arr7.length ; i++){
+            if(delete_list.includes(arr7[i])){
+                arr7.splice(i,1);
+            }
+        }
+        console.log(arr7);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>생성자</title>
+</head>
+<script>
+    // JS의 this는 함수가 호출되는 방식에 따라 this binding이 동적으로 결정됨.
+    // this는 코드 어디에서든지 사용 가능
+    // 전역에서 this는 전역객체 window를 가리킴
+    console.log(this); //window
+
+    // 일반 함수 내부의 this?
+    function square(number) {
+        console.log(this); //window
+    }
+
+    square();
+
+    const person = {
+        name: 'kim',
+        // 객체 안에 함수 == 메서드. 메서드 내부에서 this?
+        getName() {
+            console.log(this); // 메서드를 호출한 객체를 가리킴 => person
+            return this.name; // 현재 객체인 person의 name을 가리킴
+        }
+    }
+    person.getName(); // {name: 'kim', getName: f}
+
+    function Person(name) {
+        this.name = name;
+        this.getName = () => {
+            return this.name;
+        }
+        console.log(this);
+        console.log(this.name);
+    }
+
+    const me = new Person('CHOI');
+    const you = new Person('LEE');
+
+    // new 키워드 제외시, Person은 일반 함수로 동작한다. 따라서 this == window
+    // this.name = 'PARK' 에서 window객체에 name 프로퍼티 생성 후, 'PARK' 저장함.
+    const park = Person("PARK");
+    // park은 name 프로퍼티가 없는 상태. return값을 저장할 뿐..
+    try {
+        // 시도할 구문
+        console.log('test');
+        // throw new Error('에러'); 에러 만들어서 던지기
+        console.log(park.name); //오류!
+    } catch (e) { // e는 생성된 에러의 인스턴스로, 출력 시 에러 메세지가 출력된다.
+        // 오류났을 때 실행할 구문
+        console.log('오류남...');
+        console.log(e);
+    } finally {
+        // finally는 선택적 구문으로, 오류 나든 안나든 상관없이 실행 됨.
+    }
+
+    /*************************** apply, bind, call ****************************/
+    function say(인삿말, 구분){
+        console.log(`${인삿말} ${구분}${this.name}님!!`);
+    }
+
+    let 사람1 = {name : '홍길동'};
+    let 사람2 = {name : '김길동'};
+    say.apply(사람1,['안녕하세요.','멋진 ']);
+    say.apply(사람2,['하이요','귀여운 ']);
+    //call은 apply와 차이점으로 배열이 아니라 그냥 전달
+    say.call(사람1,'안녕하세요.','멋진 ');
+    say.call(사람2,'하이요','귀여운 ');
+    //bind는 함수와 어떤 객체를 연결지어줌. (묶음)
+    let talk = say.bind(사람1); //talk은 사람1과 say가 bind된 새로운 함수가 된다.
+    talk('헬로', '어제 만난 ');
+
+    function TEST(a,b){
+        this.a = a;
+        this.b = b;
+    }
+
+    TEST.prototype.func = () =>{
+        console.log('adsfsjoiaf');
+    }
+
+    let t1 = new TEST(1,2);
+    let t2 = new TEST(3,4);
+    t1.func();
+    t2.func();
+    console.log(t1.func === t2.func);
+</script>
+<body>
+</body>
+</html>

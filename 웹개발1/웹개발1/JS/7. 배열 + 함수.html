@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>배열과 함수 연계</title>
+</head>
+<script>
+
+    function func(str) {
+        if (str.includes('i')) {
+            return true;
+        }
+        return false;
+    }
+
+    let arr = [1, 10, 3, 4, 6, 5, 9, 8, 7, 2];
+    let arr2 = ['abc', 'ABC', 'hi', 'apple', 'grape'];
+
+    //every
+    let result = arr.every(number => number < 50);
+    console.log('every:', result);
+
+    //filter
+    result = arr.filter(number => number % 2 === 0);
+    console.log('filter:', result);
+
+    //find는 처음으로 나온 요소 자체
+    result = arr2.find(str => str.includes('i'));
+    console.log('find:', result);
+
+    //findIndex는 처음으로 나온 요소의 index
+    result = arr2.findIndex(str => str.includes('i'));
+    console.log('findIndex:', result);
+
+    //forEach
+    //item : 가져온 요소, index : 가져온 요소의 index번호, arr: 원래 배열
+    arr2.forEach((item, index, arr) => {
+        arr[index] = item + 'a';
+    });
+    console.log(arr2);
+
+    result = arr2.keys();
+    console.log(result);
+
+    result = arr.map(x => {
+        if (x % 2 === 0)
+            return x + 100;
+        return x - 100;
+    });
+    console.log('map:', result);
+
+    // 콜백 함수의 반환값을 다음 순회시 콜백 함수의 첫번째 인수로 전달하며
+    // 하나의 결과값을 만들어 반환함. 원본 배열은 변경되지 않음.
+    // callback => 콜백 함수
+    // item => 초기값
+    // 합계 구하기
+    result = arr.reduce((callback, item, index, arr) => {
+       return callback + item;
+    });
+    console.log(result);
+
+    //reduce를 활용하여 배열에서 최대값 구하기
+    result = arr.reduce((callback, curtItem)=>{
+        return callback > curtItem ? callback : curtItem;
+    });
+    console.log(result);
+</script>
+<body>
+
+</body>
+</html>

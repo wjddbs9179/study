@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>함수2</title>
+</head>
+<script>
+    let f = function (a, b) {
+        console.log(a, b);
+    }
+    f(1, 2); //리터럴 함수 호출
+
+    //즉시 실행 함수
+    let f2 = (function (a, b) {
+        console.log('즉시실행', a, b);
+        return 100;
+    })(1, 5);
+    console.log(f2);
+
+    //함수 생성 후 즉시 실행 (일회용 함수)
+    (function (a, b) {
+        console.log('즉시실행', a, b);
+        return 100;
+    })(1, 5);
+
+    //화살표 함수 작성 *********
+    let arrow = () => {
+        console.log('화살표 실행');
+    };
+    arrow(); //함수 호출
+
+    //화살표 함수 정의 후 실행까지
+    (() => {
+        console.log('즉시실행 화살표');
+    })();
+    (function () {
+        console.log('즉시실행');
+    })();
+
+    let f3 = (a, b) => {
+        console.log(a, b);
+        console.log(a + b);
+    }
+    f3(1, 2);
+
+    let f4 = a => console.log(a);
+    f4(1);
+
+    let f5 = a => a + 10;
+    console.log(f5(1));
+    console.log(f5);
+    f6(f5);
+
+    f6(function (){
+        console.log('test');
+    });
+
+    function f6(param) {
+        if (param instanceof Function) {
+            console.log('param은 함수');
+            console.log('함수 안에서 실행', param(1));
+            console.log('함수 안에서 실행', f5(1));
+        }else{
+            console.log('param은 함수가 아니다.');
+            console.log(param);
+        }
+    }
+    f6(12);
+
+    console.log('==============================================')
+    f6(()=>{
+        console.log('test');
+    });
+
+
+
+    function f7(p, ...param){
+        console.log(p);
+        console.log(param);
+    }
+    f7(1,2,3,4,5);
+
+    // 생성자 함수
+    const strObject = new String('TEST');
+    console.log(typeof strObject);
+    console.log(strObject);
+
+    //객체 리터럴에 의한 객체 생성 방식
+    // => 같은 기능 일지라도 다시 정의해야 한다.
+    const circle = {
+        radius : 5,
+        getRadius(){
+            return this.radius ** 2;
+        }
+    }
+    console.log(circle['radius'] ** 2);
+    console.log(circle.getRadius());
+
+    //프로퍼티와 값을 나눠서 생성하기
+    const circle2 = {
+        radius : 10,
+        getRadius: function(){
+            return this.radius ** 2;
+        }
+    }
+    console.log(circle2.getRadius());
+
+    //생성하 함수에 의한 객체 생성 방식
+    function Circle(radius) {
+        this.radius = radius;
+        this.getRadius = function (){
+            return this.radius ** 2;
+        }
+    }
+
+    let circle3 = new Circle(5); //생성자 함수를 통한 객체 생성
+    let circle4 = new Circle(10); //생성자 함수를 통한 객체 생성
+
+    console.log(circle3.radius);
+    console.log(circle4.radius);
+
+    console.log(circle3.getRadius());
+    console.log(circle4.getRadius());
+
+    Circle('new 키워드 없으면 일반 함수로 동작됩니다.');
+</script>
+<body>
+
+</body>
+</html>

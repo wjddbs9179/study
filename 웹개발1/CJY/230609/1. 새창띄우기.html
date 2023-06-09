@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>새창띄우기</title>
+</head>
+<body>
+<button onclick="open_window()">새창 띄워용</button>
+<button onclick="change_data()">눌러봐</button>
+<button onclick="back()">뒤로가기</button>
+<button onclick="forward()">앞으로가기</button>
+</body>
+</html>
+<script>
+    function change_data(){
+        // 두개는 같음
+        // location.assign('https://www.naver.com');
+        location.href='https://www.naver.com';
+        // reload : 새로고침
+        // location.reload();
+        // replace : 이력에 안남고 이동
+        // location.replace('https://www.naver.com');
+    }
+
+    function back(){
+        history.back();
+    }
+
+    function forward(){
+        history.forward();
+    }
+
+    function open_window(){
+        window.open('https://google.com','popup','width=400,height=400,top=100,left=100,scrollbars=no,resizable=no,location=no');
+    }
+</script>

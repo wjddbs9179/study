@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>체크버튼 판단</title>
+</head>
+<body>
+<div>당신이 선택한 강좌 수 : <span>0</span>개</div>
+<label for="c">C언어</label>
+<input type="checkbox" id="c" onclick="change_count()">
+
+<label for="java">JAVA</label>
+<input type="checkbox" id="java" onclick="change_count()">
+
+<label for="python">Python</label>
+<input type="checkbox" id="python" onclick="change_count()">
+</body>
+</html>
+<script>
+    let countSpan = document.querySelector('span');
+    let checkBoxes = document.getElementsByTagName('input');
+
+    [...checkBoxes].forEach(box => box.onclick = change_count);
+
+
+
+    // 체크박스가 클릭되었을 때 실행할 함수 (숫자 변경하기)
+    function change_count() {
+        let count = 0;
+        for (let i = 0; i < checkBoxes.length; i++) {
+            if (checkBoxes.item(i).checked) {
+                count++;
+            }
+        }
+        // 글자를 count로 변경한다.
+        countSpan.innerText = count;
+    }
+</script>

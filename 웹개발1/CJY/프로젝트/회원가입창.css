@@ -1,0 +1,60 @@
+input {
+    width: 490px;
+    height: 16px;
+    margin: 11px 0px 2px 28px;
+    padding: 5px 0;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+table, tr, td{
+    border: 1px solid black;
+    width: 100px;
+    height: 50px;
+    padding: 10px;
+    margin: 10px;
+}
+
+table{
+    width: 500px;
+}
+select{
+    border: none;
+}
+
+#phone2{
+    display: inline-block;
+    width: 220px;
+}
+#phone3{
+    display: inline-block;
+    width: 220px;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.join-container {
+    display: flex;
+    justify-content: center;
+}
+
+#first-page {
+    padding: 10px;
+    margin: 5px;
+    width: 150px;
+    height: 60px;
+}
+#success {
+    padding: 10px;
+    margin: 5px;
+    width: 200px;
+    height: 60px;
+}

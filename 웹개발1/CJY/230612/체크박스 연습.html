@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>체크박스 연습</title>
+</head>
+<body>
+<input type="text" id="todo" placeholder="할일을 추가하세요.">
+<button onclick="add_todo()">추가</button>
+<br>
+<input type="text" id="color" placeholder="색상값을 입력하세요.">
+<button onclick="change_color()">설정</button>
+<hr>
+<div id="todoContainer"></div>
+</body>
+</html>
+
+<script>
+    let todoCount = 0;
+    let todoContainer = document.getElementById('todoContainer');
+    function add_todo(){
+        let todoText = document.getElementById('todo').value;
+        todoContainer.innerHTML+='<div><span>'+(++todoCount)+'.'+todoText+'</span><input type="checkbox" id="'+todoCount+'"></div>';
+    }
+
+    function change_color() {
+        let colorValue = document.getElementById('color').value;
+        let spans = [...todoContainer.querySelectorAll('div > span')];
+        let checkBoxes = [...todoContainer.querySelectorAll('div > input')];
+        for(let i = 0 ; i < checkBoxes.length ; i++){
+            if(checkBoxes[i].checked){
+                spans[i].style.color = colorValue;
+            }
+        }
+    }
+</script>

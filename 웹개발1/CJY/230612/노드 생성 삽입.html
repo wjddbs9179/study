@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>노드 생성과 삽입2</title>
+</head>
+<style>
+    li {
+        display: none;
+    }
+
+    li[active] {
+        display: block;
+    }
+</style>
+<body>
+<button onclick="create_li()">리스트 생성하기!</button>
+<button onclick="move_li()">리스트 복제하기!</button>
+<button onclick="toggle_active()">리스트 숨기기/나타내기</button>
+<br>
+<button onclick="change_color()">색상 설정하기</button>
+<input type="text" placeholder="원하는 색상값을 입력하세요.">
+<ul>
+    <li active><b>리스트1</b></li>
+    <li>리스트2</li>
+</ul>
+</body>
+</html>
+<script>
+    let ul = document.querySelector('ul');
+    let lies = ul.getElementsByTagName('li');
+    let count = 1;
+
+
+    function change_color(){
+        let colorValue = document.querySelector('input').value;
+        for(let i = 0 ; i <lies.length ; i++){
+            lies.item(i).style.color = colorValue;
+            lies.item(i).style.fontWeight = 'bold';
+        }
+    }
+
+
+    //active 속성을 보고 판단하기 (생성/삭제)
+    function toggle_active() {
+        [...ul.getElementsByTagName('li')].forEach(li => {
+            li.toggleAttribute('active');
+        })
+
+        // let lies = ul.getElementsByTagName('li');
+        // let liArray = Array.from(lies); //HTMLCollection을 Array형태로
+        // liArray = [...lies]; //HTMLCollection을 Array형태로 (spread 문법)
+
+        // for (let i = 0; i < lies.length; i++) {
+        //     // active 속성이 있다면 없애고, 없다면 생성한다.
+        //     lies.item(i).toggleAttribute('active');
+        //
+        //     // if (lies.item(i).hasAttribute('active')) {
+        //     //     // active속성이 들어있다면
+        //     //     // active 속성을 제거한다.
+        //     //     lies.item(i).removeAttribute('active');
+        //     // } else {
+        //     //     // 해당 li에게 active 속성이 들어있지 않다면
+        //     //     // active 속성을 설정한다.
+        //     //     lies.item(i).setAttribute('active', 'true');
+        //     // }
+        // }
+    }
+
+    function move_li() {
+        let li = document.querySelector('li'); // 가져올 뿐
+        let newLi = li.cloneNode(); // 진짜 복사 cloneNode에 매개변수로 true를 넣으면 안에 있는 모든 내용 복사
+        newLi.setAttribute('active', 'true');
+        newLi.textContent = '새 LI';
+        ul.appendChild(newLi);
+        alert('기존의 li를 추가하였다!');
+    }
+
+    // 기존에 없던 새로운 요소를 생성하기
+    function create_li() {
+        let li = document.createElement('li');
+        li.innerHTML = '<b>리스트' + (++count) + '</b>';
+        ul.appendChild(li);
+        alert('li가 하나 삽입되었음~!');
+    }
+</script>

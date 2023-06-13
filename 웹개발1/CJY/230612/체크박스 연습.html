@@ -18,18 +18,40 @@
 <script>
     let todoCount = 0;
     let todoContainer = document.getElementById('todoContainer');
-    function add_todo(){
+
+    function add_todo() {
         let todoText = document.getElementById('todo').value;
-        todoContainer.innerHTML+='<div><span>'+(++todoCount)+'.'+todoText+'</span><input type="checkbox" id="'+todoCount+'"></div>';
+        if(todoText==='')
+            return;
+        const div = document.createElement('div');
+        const label = document.createElement('label');
+        const input = document.createElement('input');
+        // input의 type을 체크박스로 설정
+        input.setAttribute('type','checkbox');
+        // input의 id를 설정한다 - label하고 연결 지을것임.
+        input.setAttribute('id','text');
+        // label의 for를 연결 할 input의 id와 같게 설정한다
+        label.setAttribute('for','text');
+        label.textContent = (++todoCount)+'. '+todoText;
+
+
+        div.appendChild(label);
+        div.appendChild(input);
+        todoContainer.appendChild(div);
+        document.getElementById('todo').value = '';
+
+        // innerHTML 사용시
+        // let todoText = document.getElementById('todo').value;
+        // todoContainer.innerHTML += '<div><label for="' + todoCount + '">' + (++todoCount) + '. ' + todoText + '</label><input type="checkbox" id="' + todoCount + '"></div>';
     }
 
     function change_color() {
         let colorValue = document.getElementById('color').value;
-        let spans = [...todoContainer.querySelectorAll('div > span')];
+        let labels = [...todoContainer.querySelectorAll('div > label')];
         let checkBoxes = [...todoContainer.querySelectorAll('div > input')];
-        for(let i = 0 ; i < checkBoxes.length ; i++){
-            if(checkBoxes[i].checked){
-                spans[i].style.color = colorValue;
+        for (let i = 0; i < checkBoxes.length; i++) {
+            if (checkBoxes[i].checked) {
+                labels[i].style.color = colorValue;
             }
         }
     }
